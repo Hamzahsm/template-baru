@@ -1,0 +1,40 @@
+
+[
+    {
+      "name":"New World",
+      "image": "https://mmopilot.com/wp-content/uploads/2021/10/LEATHERWORKING.png",
+      "link" : "../product-category/new-world.html"
+    },
+    {
+      "name":"Albion Online",
+      "image": "https://mmopilot.com/wp-content/uploads/2021/10/LEATHERWORKING.png",
+      "link" : "../product-category/albion.html"
+    },
+    {
+      "name":"Guild Wars 2",
+      "image": "https://mmopilot.com/wp-content/uploads/2021/10/LEATHERWORKING.png",
+      "link" : "../product-category/guildwars-2.html"
+    },
+    {
+      "name":"Leveling 41 - 60",
+      "image": "https://mmopilot.com/wp-content/uploads/2021/10/LEATHERWORKING.png",
+      "link" : "../product/new-world-level-41-60.html"
+    },
+    {
+      "name":"Leveling 1 - 60",
+      "image": "https://mmopilot.com/wp-content/uploads/2021/10/LEATHERWORKING.png",
+      "link" : "../product/new-world-1-60-1-max-gathering.html"
+    },
+    {
+      "name":"shop",
+      "image": "https://mmopilot.com/wp-content/uploads/2021/10/LEATHERWORKING.png",
+      "link":"../shop.html"
+    },
+    {
+      "name":"guide",
+      "image": "https://mmopilot.com/wp-content/uploads/2021/10/LEATHERWORKING.png",
+      "link":"../guide.html"
+    }
+  ]
+
+  
