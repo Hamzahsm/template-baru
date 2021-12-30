@@ -175,11 +175,11 @@
                   <div class="row align-items-center h-100">
                     <div class="col-12 mr-auto ml-lg-0 col-lg-5">
                       <div class="main_carousel__content ad-900ms fadeIn text-light px-8 px-md-6 mx-lg-4 mx-xl-0">
-                        <h2 class="carousel__heading text-light fadeInDown ad-500ms">Integer Ornare Erat</h2>
-                        <p class="carousel__text lead-1 mb-6 fadeInDown ad-600ms">Class aptent taciti sociosqu ad litora torquent per conubia, per inceptos himenaeos. Quisque gravida eu lacus et consequat. Interdum et malesuada fames ac ante, ipsum primis in faucibus mollis.</p>
+                        <h2 class="carousel__heading text-light fadeInDown ad-500ms">Guild Wars 2</h2>
+                        <p class="carousel__text lead-1 mb-6 fadeInDown ad-600ms">Guild Wars 2 is a massively multiplayer online role-playing game developed by ArenaNet and published by NCSoft and ArenaNet. Set in the fantasy world of Tyria, the game follows the re-emergence of Destiny's Edge</p>
                         <div class="d-flex fadeInLeft ad-900ms">
-                        <a class="disabled btn btn-lg bg-dark_A-50 o-1 text-light br-round-0tr br-round-0br parallelogram un_text mb-0"><span class="d-block text-warning"><span class="carousel__discount td-lt text-light">349$</span> 299$</span></a>
-                        <a href="#" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Buy</span></a>
+                        <!-- <a class="disabled btn btn-lg bg-dark_A-50 o-1 text-light br-round-0tr br-round-0br parallelogram un_text mb-0"><span class="d-block text-warning"><span class="carousel__discount td-lt text-light">349$</span> 299$</span></a> -->
+                        <a href="./product-category/guildwars-2.html" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Show Service</span></a>
                         </div>
                       </div>
                     </div>
@@ -206,11 +206,11 @@
                   <div class="row align-items-center h-100">
                     <div class="col-12 mr-auto ml-lg-0 col-lg-5">
                       <div class="main_carousel__content ad-900ms fadeIn text-light px-8 px-md-6 mx-lg-4 mx-xl-0">
-                        <h2 class="carousel__heading text-light fadeInDown ad-500ms">Donec Luctus</h2>
-                        <p class="carousel__text lead-1 mb-6 fadeInDown ad-600ms">Class aptent taciti sociosqu ad litora torquent per conubia, per inceptos himenaeos. Quisque gravida eu lacus et consequat. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                        <h2 class="carousel__heading text-light fadeInDown ad-500ms">Albion Online</h2>
+                        <p class="carousel__text lead-1 mb-6 fadeInDown ad-600ms">Albion Online (AP) is a free medieval fantasy MMORPG developed by Sandbox Interactive, a studio based in Berlin, Germany. Albion online is based on The Arthurian legends</p>
                         <div class="d-flex fadeInLeft ad-900ms">
-                        <a class="disabled btn btn-lg bg-dark_A-50 o-1 text-light br-round-0tr br-round-0br parallelogram un_text mb-0"><span class="d-block text-warning"><span class="carousel__discount td-lt text-light">349$</span> 299$</span></a>
-                        <a href="#" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Buy</span></a>
+                        <!-- <a class="disabled btn btn-lg bg-dark_A-50 o-1 text-light br-round-0tr br-round-0br parallelogram un_text mb-0"><span class="d-block text-warning"><span class="carousel__discount td-lt text-light">349$</span> 299$</span></a> -->
+                        <a href="./product-category/albion.html" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Show Service</span></a>
                         </div>
                       </div>
                     </div>
@@ -237,11 +237,11 @@
                   <div class="row align-items-center h-100">
                     <div class="col-12 mr-auto ml-lg-0 col-lg-5">
                       <div class="main_carousel__content ad-900ms fadeIn text-light px-8 px-md-6 mx-lg-4 mx-xl-0">
-                        <h2 class="carousel__heading text-light fadeInDown ad-500ms">Nunc Lacinia Tincidunt</h2>
-                        <p class="carousel__text lead-1 mb-6 fadeInDown ad-600ms">Class aptent taciti sociosqu ad litora torquent per conubia, per inceptos himenaeos. Quisque gravida eu lacus et consequat. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                        <h2 class="carousel__heading text-light fadeInDown ad-500ms">New World</h2>
+                        <p class="carousel__text lead-1 mb-6 fadeInDown ad-600ms">New World is a massively multiplayer online role-playing game (MMORPG) developed by Amazon Games Orange County and published by Amazon Games released on September 28, 2021.</p>
                         <div class="d-flex fadeInLeft ad-900ms">
-                        <a class="disabled btn btn-lg bg-dark_A-50 o-1 text-light br-round-0tr br-round-0br parallelogram un_text mb-0"><span class="d-block text-warning"><span class="carousel__discount td-lt text-light">349$</span> 299$</span></a>
-                        <a href="#" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Buy</span></a>
+                        <!-- <a class="disabled btn btn-lg bg-dark_A-50 o-1 text-light br-round-0tr br-round-0br parallelogram un_text mb-0"><span class="d-block text-warning"><span class="carousel__discount td-lt text-light">349$</span> 299$</span></a> -->
+                        <a href="./product-category/new-world.html" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Show Service</span></a>
                         </div>
                       </div>
                     </div>
@@ -931,13 +931,13 @@
               <div class="col-6 col-lg-2">
                 <h6 class="text-uppercase fw-600 mb-4">Guild Wars 2</h6>
                 <div class="nav flex-column">
-                  <a class="nav-link" href="./store.html">Packages</a>
-                  <a class="nav-link" href="./store.html">Legendary Armour & Trinket</a>
-                  <a class="nav-link" href="./store.html">Legendary Weapon</a>
-                  <a class="nav-link" href="./store.html">Leveling & Mastery</a>
-                  <a class="nav-link" href="./store.html">WvW & PvP</a>
-                  <a class="nav-link" href="./store.html">Fractal</a>
-                  <a class="nav-link" href="./store.html">Ascended & Crafting</a>
+                  <a class="nav-link" href="./product-category/guildwars-2/gw2-powerleveling-packages.php">Packages</a>
+                  <a class="nav-link" href="./product-category/guildwars-2/gw2-legendary-armour-trinket.html">Legendary Armour & Trinket</a>
+                  <a class="nav-link" href="./product-category/guildwars-2/gw2-legendary-weapon.html">Legendary Weapon</a>
+                  <a class="nav-link" href="./product-category/guildwars-2/gw2-leveling-and-mastery.html">Leveling & Mastery</a>
+                  <a class="nav-link" href="./product-category/guildwars-2/wvw-pvp-leveling-mastery-guild-wars-2.html">WvW & PvP</a>
+                  <a class="nav-link" href="./product-category/guildwars-2/fractal-leveling-mastery-guild-wars-2.html">Fractal</a>
+                  <a class="nav-link" href="./product-category/guildwars-2/gw2-ascended-and-crafting.html">Ascended & Crafting</a>
                   
                 </div>
               </div>

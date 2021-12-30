@@ -1,79 +1,82 @@
+<?php 
+
+$con = mysqli_connect("localhost","root","","ssve");
+// Check connection
+if (mysqli_connect_errno()){
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+function query($datas) {
+ global $con;
+ $result = mysqli_query($con, $datas); 
+ $datakosong = [];
+
+ while( $isidata = mysqli_fetch_assoc($result)) {
+     $datakosong[] = $isidata;
+ }
+
+ return $datakosong; 
+}
+
+$datas = query("SELECT * FROM test_pilot");  
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>New World - MMOPILOT</title>
+    <title>Shop - MMOPILOT</title>
 
     <!-- CSS -->
-    <link href="../assets/css/fonts/etline-font.min.css" rel="stylesheet">
-    <link href="../assets/css/fonts/fontawesome/all.min.css" rel="stylesheet"> 
-    <link href="../assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
-    <link href="../assets/css/fonts/themify-icons.css" rel="stylesheet">
+    <link href="../../assets/css/fonts/etline-font.min.css" rel="stylesheet">
+    <link href="../../assets/css/fonts/fontawesome/all.min.css" rel="stylesheet">
+    <link href="../../assets/css/fonts/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="../../assets/css/fonts/themify-icons.css" rel="stylesheet">
 
-    <link href="../assets/plugins/owl.carousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../assets/plugins/owl.carousel/owl.carousel.min.css" rel="stylesheet">
 
-    <link href="../assets/css/main.css" rel="stylesheet"> 
-    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link href="../../assets/css/main.css" rel="stylesheet"> 
+    <link href="../../assets/css/styles.css" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
-    <link rel="icon" href="../assets/img/MMOpilot-logo-rocket.png">
+    <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+    <link rel="icon" href="../../assets/img/MMOpilot-logo-rocket.png">
 
-    <!-- Fonts -->
+    <!-- Fonts --> 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
             <!-- css live search ada di bawah -->
             <style>
-              .live-search-list {
-              -webkit-box-sizing: border-box;
-              -moz-box-sizing: border-box;
-              box-sizing: border-box;
-              padding: 1em;
-              background-color: #2c3e50;
-              -webkit-border-radius: 5px;
-              -moz-border-radius: 5px;
-              border-radius: 5px;
-              font-family: 'Lato', sans-serif;
-              color: #fff;
-              }
-        
-              .live-search-box {
-              width: 100%;
-              display: block;
-              padding: 1em;
-              -webkit-box-sizing: border-box;
-              -moz-box-sizing: border-box;
-              box-sizing: border-box;
-              border: 1px solid #3498db;
-              -webkit-border-radius: 5px;
-              -moz-border-radius: 5px;
-              border-radius: 5px;
-              }
-        
-              .live-search-list li {
-              color: fff;
-              list-style: none;
-              padding: 0;
-              margin: 5px 0;
-              }
-            </style>
+          #result {
+          position: absolute;
+          width: 100%;
+          max-width:870px;
+          cursor: pointer;
+          overflow-y: auto;
+          max-height: 400px;
+          box-sizing: border-box; 
+          z-index: 1001;
+          }
+          .link-class:hover{
+          background-color:#f1f1f1;
+          }
+        </style>
   </head>
   <body class="page-body">
-
+ 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-nav zi-3">
       <div class="container">
         <div class="row">
           <div class="col-4 col-sm-3 col-md-2 mr-auto">
-            <a class="navbar-brand logo" href="../index.php">
-              <img src="../assets/img/pilot baru.png" alt="Wicodus" class="" width="435px" height="116">
+            <a class="navbar-brand logo" href="../../index.php">
+              <img src="../../assets/img/pilot baru.png" alt="Wicodus" class="" width="435px" height="116">
             </a>
           </div>
           <div class="col-4 d-none d-lg-block mx-auto">
@@ -83,16 +86,14 @@
                 <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
               </div>
             </form> -->
+            <form class="input-group border-0 bg-transparent">
+              <input class="form-control live-search-box" type="search" placeholder="Search" aria-label="Search" name="search" id="search" autocomplete="off">
+              <div class="input-group-append">
+                <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
+              </div>
+            </form>
 
-            <input type="text" class="live-search-box" placeholder="search here" />
-
-            <ul class="live-search-list">
-              <li><a href="./new-world.html">New World</a></li>
-              <li><a href=".guildwars-2.html">Guild Wars 2</a></li>
-              <li><a href=".albion.html">Albion Online</a></li>
-              <li><a href="../product/new-world-level-41-60.html">Leveling 41-60</a></li>
-              <li><a href="../product/new-world-1-60-1-max-gathering.html">Leveling 1-60</a></li>
-              </ul>
+              <ul class="list-group" id="result"></ul>
           </div>
           <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-4 ml-auto text-right">
             <a class="btn btn-sm btn-warning text-secondary mr-2" href="#" data-toggle="modal" data-target="#userLogin">Sign in</a>
@@ -127,14 +128,14 @@
             <li class="nav-item dropdown dropdown-hover">
               <a class="nav-link dropdown-toggle pl-lg-0" href="#" id="dropdownGaming_games" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products </a>
               <div class="dropdown-menu dropdown-menu-dark-lg" aria-labelledby="dropdownGaming_games">
-                <a class="dropdown-item" href="./new-world.html">New World</a>
-                <a class="dropdown-item" href="./guildwars-2.html">Guild Wars 2</a>
-                <a class="dropdown-item" href="./albion.html">Albion Online</a>
-                <a class="dropdown-item" href="../shop.html">All Product</a>
+                <a class="dropdown-item" href="./store.html">New World</a>
+                <a class="dropdown-item" href="./store.html">Guild Wars 2</a>
+                <a class="dropdown-item" href="./store.html">Albion Online</a>
+                <a class="dropdown-item" href="./store.html">All Product</a>
               </div>
             </li>
             <li class="nav-item ">
-              <a class="nav-link " href="./guide.html">Guide </a>
+              <a class="nav-link " href="./guide.php">Guide </a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" href="./contact.html">Contact </a>
@@ -154,10 +155,10 @@
     <!-- header -->
     <header class="header">
       <!-- content area -->
-      <section class="content-section text-light br-n bs-c bp-c" style="background-image: url(../assets/img/bg/bg_shape.png);">
+      <section class="content-section text-light br-n bs-c bp-c" style="background-image: url(../../assets/img/bg/bg_shape.png);">
         <div class="container">
           <div class="header text-left">
-            <h2>New World Best Deals</h2>
+            <h2>Best Deals</h2>
           </div>
           <div id="storeCarousel" class="carousel-spotlight carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -167,7 +168,7 @@
                 <div class="row">
                   <div class="col-lg-8 pr-lg-1">
                     <a href="#">
-                      <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(../assets/img/content/cont/landing_page_our_services_07.png);">
+                      <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(../../assets/img/content/carousel/1.png);">
                       </div>
                     </a>
                   </div>
@@ -175,12 +176,12 @@
                     <div class="row no-gutters h-100">
                       <div class="col-12 pb-1">
                         <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png);"></div>
+                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png);"></div>
                         </a>
                       </div>
                       <div class="col-12 pt-1">
                         <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png);"></div>
+                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png);"></div>
                         </a>
                       </div>
                     </div>  
@@ -208,7 +209,7 @@
                 <div class="row">
                   <div class="col-lg-8 pr-lg-1">
                     <a href="#">
-                      <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(../assets/img/content/cont/satu.jpg);">
+                      <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(../../assets/img/content/carousel/choose.png);">
                       </div>
                     </a>
                   </div>
@@ -216,12 +217,12 @@
                     <div class="row no-gutters h-100">
                       <div class="col-12 pb-1">
                         <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png);"></div>
+                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png);"></div>
                         </a>
                       </div>
                       <div class="col-12 pt-1">
                         <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png);"></div>
+                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png);"></div>
                         </a>
                       </div>
                     </div>  
@@ -249,7 +250,7 @@
                 <div class="row">
                   <div class="col-lg-8 pr-lg-1">
                     <a href="#">
-                      <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(../assets/img/content/cont/dua.jpg);">
+                      <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(../../assets/img/content/cont/landing_page_our_services_07.png);">
                       </div>
                     </a>
                   </div>
@@ -257,12 +258,12 @@
                     <div class="row no-gutters h-100">
                       <div class="col-12 pb-1">
                         <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png);"></div>
+                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png);"></div>
                         </a>
                       </div>
                       <div class="col-12 pt-1">
                         <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png);"></div>
+                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png);"></div>
                         </a>
                       </div>
                     </div>  
@@ -336,56 +337,58 @@
                   </li>
                 </ul>
                 <!-- /.nav tabs -->
+
+
                 <!-- tab panes -->
                 <div id="color_sel_Carousel-content_02" class="tab-content position-relative w-100">
                   <!-- tab item -->
                   <div class="tab-pane fade active show" id="mp-2-01-c" role="tabpanel" aria-labelledby="mp-2-01-tab">
                     <div class="row">
                       <!-- item -->
+                    <?php foreach($datas as $data) :?>
                       <div class="col-md-12 mb-4">
                         <a href="./power-leveling-150.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store" >
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store" >
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Power Leveling 1-50</h6>
+                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1"><?= $data["title"];?></h6>
                               <div class="mb-0">
                                 <i class="mr-2 fab fa-windows"></i>
                                 <i class="mr-2 fab fa-steam"></i>
                                 <i class="fab fa-apple"></i>
                               </div>
                               <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  MMORPG, NEW WORLD
-                                </span>
+                                <span class="item_genre small fw-600"><?= $data["genre"];?></span>
                               </div>
                             </div>
                             <div class="item_discount d-none d-sm-block">
                               <div class="row align-items-center h-100 no-gutters">
                                 <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
+                                  <span class="fw-600 btn bg-warning"><?= $data["discount"];?></span>
                                 </div>
                               </div>
                             </div>
                             <div class="item_price">
                               <div class="row align-items-center h-100 no-gutters">
                                 <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
+                                  <span class="fw-600 td-lt"><?= $data["harga"];?></span><br>
+                                  <span class="fw-600"><?= $data["sale"];?></span>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </a>
                       </div>
+                    <?php endforeach; ?>
                       <!-- /.item -->
                       <!-- item -->
-                      <div class="col-md-12 mb-4">
+                      <!-- <div class="col-md-12 mb-4">
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Power Leveling 1-60</h6>
@@ -417,14 +420,14 @@
                             </div>
                           </div>
                         </a>
-                      </div>
+                      </div> -->
                       <!-- /.item -->
                       <!-- item -->
-                      <div class="col-md-12 mb-4">
+                      <!-- <div class="col-md-12 mb-4">
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Power Leveling 1-50</h6>
@@ -456,14 +459,14 @@
                             </div>
                           </div>
                         </a>
-                      </div>
+                      </div> -->
                       <!-- /.item -->
                       <!-- item -->
-                      <div class="col-md-12 mb-4">
+                      <!-- <div class="col-md-12 mb-4">
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Power Leveling 1-60</h6>
@@ -495,14 +498,14 @@
                             </div>
                           </div>
                         </a>
-                      </div>
+                      </div> -->
                       <!-- /.item -->
                       <!-- item -->
-                      <div class="col-md-12 mb-4">
+                      <!-- <div class="col-md-12 mb-4">
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Power Leveling 1-50</h6>
@@ -534,7 +537,7 @@
                             </div>
                           </div>
                         </a>
-                      </div>
+                      </div> -->
                       <!-- /.item -->
                     </div>
                   </div>
@@ -548,7 +551,7 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -587,7 +590,7 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -626,7 +629,7 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -665,7 +668,7 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -704,7 +707,7 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -750,7 +753,7 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -789,7 +792,7 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -828,7 +831,8 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_
+                              MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -867,7 +871,7 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -906,7 +910,7 @@
                         <a href="store-product.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="../../assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
@@ -971,6 +975,17 @@
               <div class="col-lg-4">
                 <div class="filters border border-secondary rounded p-4">
                   <ul class="sidebar-nav-light-hover list-unstyled mb-0 text-unset small-3 fw-600">
+
+                  <li class="nav-item text-light transition mb-2 active">
+                  <form class="input-group border-0 bg-transparent">
+                    <input class="form-control live-search-box" type="search" placeholder="Search Products" aria-label="Search" name="search" id="search" autocomplete="off">
+                    <div class="input-group-append">
+                      <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                  </form>
+
+                  <ul class="list-group" id="result"></ul>
+                  </li>
 
                     <li class="nav-item text-light transition mb-2 active">
                       <a href="" aria-expanded="false" data-toggle="collapse" class="nav-link py-2 px-3 text-uppercase  collapsed collapser collapser-active nav-link-border">
@@ -1381,68 +1396,68 @@
 
     <!-- footer -->
     <footer class="footer footer-dark bg-dark py-9">
+
       <div class="container">
           <div class="row gutters-y">
               <div class="col-6 col-lg-3">
-                <a href="#" class="logo d-block mb-4"><img src="../assets/img/logo-gaming.png" alt="Wicodus" class="logo-dark"></a>
-                <p>Wicodus is a online store where you can find digital goods at the best prices.</p>
+                <a href="./about.html" class="logo d-block mb-2"><img src="../../assets/img/pilot baru.png" alt="Wicodus" class="" width="435px" height="116"></a>
+                <p style="color: #403B30">OESMAN LLC. Perum Bumi Asri Sengkaling N-34, Malang, East Java, Indonesia. Reg. number: 0709210024961</p>
                 <div class="social-buttons">
-                  <a class="social-twitter" href="#"><i class="fab fa-twitter"></i></a>
-                  <a class="social-dribbble" href="#"><i class="fab fa-dribbble"></i></a>
+                  <a class="social-twitter" href="#"><i class="fab fa-facebook"></i></a>
+                  <a class="social-dribbble" href="#"><i class="fab fa-discord"></i></a>
                   <a class="social-instagram" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
               </div>
 
               <div class="col-6 col-lg-2">
-                <h6 class="text-uppercase fw-600 mb-4">About</h6>
+                <h6 class="text-uppercase fw-600 mb-4">Guild Wars 2</h6>
                 <div class="nav flex-column">
-                  <a class="nav-link" href="about.html">Our team</a>
-                  <a class="nav-link" href="about.html">Careers</a>
-                  <a class="nav-link" href="about.html">Cookie Policy</a>
-                  <a class="nav-link" href="about.html">Privacy Policy</a>
+                  <a class="nav-link" href="gw2-powerleveling-packages.php">Packages</a>
+                  <a class="nav-link" href="gw2-legendary-armour-trinket.html">Legendary Armour & Trinket</a>
+                  <a class="nav-link" href="gw2-legendary-weapon.html">Legendary Weapon</a>
+                  <a class="nav-link" href="gw2-leveling-and-mastery.html">Leveling & Mastery</a>
+                  <a class="nav-link" href="wvw-pvp-leveling-mastery-guild-wars-2.html">WvW & PvP</a>
+                  <a class="nav-link" href="fractal-leveling-mastery-guild-wars-2.html">Fractal</a>
+                  <a class="nav-link" href="gw2-ascended-and-crafting.html">Ascended & Crafting</a>
                   
                 </div>
               </div>
 
               <div class="col-6 col-lg-2">
-                <h6 class="text-uppercase fw-600 mb-4">Community</h6>
+                <h6 class="text-uppercase fw-600 mb-4">Albion Online</h6>
                 <div class="nav flex-column">
-                  <a class="nav-link" href="news.html">Forum</a>
-                  <a class="nav-link" href="news.html">Blog</a>
-                  <a class="nav-link" href="news.html">News</a>
-                  <a class="nav-link" href="news.html">Team</a>
+                  <a class="nav-link" href="news.html">Power Leveling</a>
                 </div>
               </div>
 
               <div class="col-6 col-lg-2">
-                <h6 class="text-uppercase fw-600 mb-4">Help</h6>
+                <h6 class="text-uppercase fw-600 mb-4">New World</h6>
                 <div class="nav flex-column">
-                  <a class="nav-link" href="contact.html">Contact Us</a>
-                  <a class="nav-link" href="contact.html">Support</a>
-                  <a class="nav-link" href="contact.html">Terms & conditions</a>
-                  <a class="nav-link" href="contact.html">Refund policy</a>
+                  <a class="nav-link" href="./store.html">Level</a>
+                  <a class="nav-link" href="./store.html">Life Skill</a>
+                  <a class="nav-link" href="./store.html">Gathering</a>
+                  <a class="nav-link" href="./store.html">Trade Skill</a>
                 </div>
               </div>
               
               <div class="col col-lg-3 order-lg-last">
                 <div class="mb-6">
-                  <h6 class="text-uppercase fw-600 mb-4">Ways to pay</h6>
+                  <h6 class="text-uppercase fw-600 mb-4">All About Our Site</h6>
+                  <div class="nav flex-column">
+                    <a class="nav-link" href="./about.html">About Us</a>
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                    <a class="nav-link" href="contact.html">Return and Refund</a>
+                    <a class="nav-link" href="contact.html">Privacy Policy</a>
+                    <a class="nav-link" href="contact.html">Terms and Conditions Policy</a>
+                  </div>
+                </div>
+                <div>
                   <div class="text-light lead-5 lh-1">
                     <a href="store.html" class="mr-2"><i class="fab fa-cc-paypal"></i></a>
                     <a href="store.html" class="mr-2"><i class="fab fa-cc-visa"></i></a>
                     <a href="store.html" class="mr-2"><i class="fab fa-cc-amazon-pay"></i></a>
                     <a href="store.html" class="mr-2"><i class="fab fa-cc-stripe"></i></a>
                     <a href="store.html" class="mr-2"><i class="fab fa-cc-jcb"></i></a>
-                  </div>
-                </div>
-                <div>
-                  <h6 class="mb-2">Reviews</h6>
-                  <div class="text-warning lead-1">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star text-secondary"></i>
                   </div>
                 </div>
               </div>
@@ -1508,7 +1523,7 @@
           <div class="ocs-cart-item col-12">
             <div class="row align-items-center no-gutters">
               <div class="col-3 item_img d-none d-sm-block">
-                <a href="store-product.html"><img class="img bl-3 text-primary" src="../assets/img/content/cont/cg-h_01.jpg" alt="Product"></a>
+                <a href="store-product.html"><img class="img bl-3 text-primary" src="../../assets/img/content/cont/cg-h_01.jpg" alt="Product"></a>
               </div>
               <div class="col-7 flex-1 flex-grow pl-0 pl-sm-4 pr-4">
                 <a href="store-product.html"><span class="d-block item_title text-lt ls-1 lh-1 small-1 fw-600 text-uppercase mb-2">Integer sagittis semper</span></a>
@@ -1533,7 +1548,7 @@
           <div class="ocs-cart-item col-12">
             <div class="row align-items-center no-gutters">
               <div class="col-3 item_img d-none d-sm-block">
-                <a href="store-product.html"><img class="img bl-3 text-primary" src="../assets/img/content/cont/cg-h_01.jpg" alt="Product"></a>
+                <a href="store-product.html"><img class="img bl-3 text-primary" src="../../assets/img/content/cont/cg-h_01.jpg" alt="Product"></a>
               </div>
               <div class="col-7 flex-1 flex-grow pl-0 pl-sm-4 pr-4">
                 <a href="store-product.html"><span class="d-block item_title text-lt ls-1 lh-1 small-1 fw-600 text-uppercase mb-2">Integer sagittis semper</span></a>
@@ -1551,7 +1566,7 @@
                     <a href="#"><i class="far fa-trash-alt"></i></a><br>
                     <span class="fw-500 text-warning">€27.59</span>
                   </div>
-                </div> 
+                </div>
               </div>
             </div>
           </div>
@@ -1564,41 +1579,41 @@
     <!-- /.offcanvas-cart -->
 
     <!-- jQuery -->
-    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/jquery.min.js"></script>
 
     <!-- Bootstrap -->
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
 
     <!-- User JS -->
-    <script src="../assets/js/scripts.js"></script>
+    <script src="../../assets/js/scripts.js"></script>
 
     <!-- Main JS -->
-    <script src="../assets/js/main.js" id="_mainJS" data-plugins="load"></script>
-
-    <script>
-      jQuery(document).ready(function($){
-
-    $('.live-search-list li').each(function(){
-    $(this).attr('data-search-term', $(this).text().toLowerCase());
-    });
-
-    $('.live-search-box').on('keyup', function(){
-
-    var searchTerm = $(this).val().toLowerCase();
-
-        $('.live-search-list li').each(function(){
-
-            if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-
-        });
-
-    });
-
-    });
-  </script>
+    <script src="../../assets/js/main.js" id="_mainJS" data-plugins="load"></script>
   </body>
 </html>
+
+<script>
+  $(document).ready(function(){
+   $.ajaxSetup({ cache: false });
+   $('#search').keyup(function(){
+    $('#result').html('');
+    $('#state').val('');
+    var searchField = $('#search').val();
+    var expression = new RegExp(searchField, "i");
+    $.getJSON('./../../assets/database/data.json', function(data) {
+     $.each(data, function(key, value){
+      if (value.name.search(expression) != -1 || value.location.search(expression) != -1)
+      {
+       $('#result').append('<li class="list-group-item link-class"><img src="'+value.image+'" height="40" width="40" class="img-thumbnail" /><span class="text-muted"><a href="'+value.link+'" style="color: black;"> '+value.name+'</a></span> </li>');
+      }
+     });   
+    });
+   });
+   
+   $('#result').on('click', 'li', function() {
+    var click_text = $(this).text().split('|');
+    $('#search').val($.trim(click_text[0]));
+    $("#result").html('');
+   });
+  });
+  </script>
