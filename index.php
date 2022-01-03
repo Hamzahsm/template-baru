@@ -161,7 +161,7 @@
         <div class="carousel-inner a-cont">
           <!-- carousel-item -->
           <div class="carousel-item active">
-            <div class="h-fullscreen__page bs-c br-n ow-h" style="background-image: url(assets/img/content/carousel/choose-3.png);">
+            <div class="h-fullscreen__page bs-c br-n ow-h" style="background-image: url(https://mmopilot.com/wp-content/uploads/2021/12/gw2.png);">
               <div class="w-100 d-flex jc-c overlay">
                 <!-- sm-overlay -->
                 <div class="overlay bg-light_A-20 d-lg-none"></div>
@@ -192,7 +192,7 @@
 
           <!-- carousel-item -->
           <div class="carousel-item">
-            <div class="h-fullscreen__page bs-c br-n ow-h" style="background-image: url(assets/img/content/carousel/1.png);"> 
+            <div class="h-fullscreen__page bs-c br-n ow-h" style="background-image: url(assets/img/content/carousel/choose-3.png);"> 
               <div class="w-100 d-flex jc-c overlay">
                 <!-- sm-overlay -->
                 <div class="overlay bg-light_A-20 d-lg-none"></div>
@@ -223,7 +223,7 @@
 
           <!-- carousel-item -->
           <div class="carousel-item">
-            <div class="h-fullscreen__page bs-c br-n ow-h" style="background-image: url(assets/img/content/carousel/choose.png);">
+            <div class="h-fullscreen__page bs-c br-n ow-h" style="background-image: url(https://mmopilot.com/wp-content/uploads/2021/12/NW.png);">
               <div class="w-100 d-flex jc-c overlay">
                 <!-- sm-overlay -->
                 <div class="overlay bg-light_A-20 d-lg-none"></div>
@@ -931,8 +931,8 @@
               <div class="col-6 col-lg-2">
                 <h6 class="text-uppercase fw-600 mb-4">Guild Wars 2</h6>
                 <div class="nav flex-column">
-                  <a class="nav-link" href="./product-category/guildwars-2/gw2-powerleveling-packages.php">Packages</a>
-                  <a class="nav-link" href="./product-category/guildwars-2/gw2-legendary-armour-trinket.html">Legendary Armour & Trinket</a>
+                  <a class="nav-link" href="./product-category/guildwars-2/gw2-powerleveling-packages.php?id=<?=$data['id']?>">Packages</a>
+                  <a class="nav-link" href="./product-category/guildwars-2/gw2-legendary-armour-trinket.php">Legendary Armour & Trinket</a>
                   <a class="nav-link" href="./product-category/guildwars-2/gw2-legendary-weapon.html">Legendary Weapon</a>
                   <a class="nav-link" href="./product-category/guildwars-2/gw2-leveling-and-mastery.html">Leveling & Mastery</a>
                   <a class="nav-link" href="./product-category/guildwars-2/wvw-pvp-leveling-mastery-guild-wars-2.html">WvW & PvP</a>
@@ -945,19 +945,19 @@
               <div class="col-6 col-lg-2">
                 <h6 class="text-uppercase fw-600 mb-4">Albion Online</h6>
                 <div class="nav flex-column">
-                  <a class="nav-link" href="news.html">Power Leveling</a>
+                  <a class="nav-link" href="product-category/albion.html">Power Leveling</a>
                 </div>
               </div>
 
               <div class="col-6 col-lg-2">
                 <h6 class="text-uppercase fw-600 mb-4">New World</h6>
                 <div class="nav flex-column">
-                  <a class="nav-link" href="./store.html">Level</a>
-                  <a class="nav-link" href="./store.html">Life Skill</a>
-                  <a class="nav-link" href="./store.html">Gathering</a>
-                  <a class="nav-link" href="./store.html">Trade Skill</a>
+                  <a class="nav-link" href="new-world/level.php">Level</a>
+                  <a class="nav-link" href="new-world/life-skill.php">Life Skill</a>
+                  <a class="nav-link" href="new-world/gathering.php">Gathering</a>
+                  <a class="nav-link" href="new-world/trade-skill.php">Trade Skill</a>
                 </div>
-              </div>
+              </div> 
               
               <div class="col col-lg-3 order-lg-last">
                 <div class="mb-6">
