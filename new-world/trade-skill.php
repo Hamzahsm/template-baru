@@ -77,13 +77,6 @@
             </a>
           </div>
           <div class="col-4 d-none d-lg-block mx-auto">
-            <!-- <form class="input-group border-0 bg-transparent">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
-              </div>
-            </form> -->
-
             <form action="search.php" method="GET" class="input-group border-0 bg-transparent">
                 <input value="<?php echo isset($_GET['s']) ? $_GET['s'] : ''; ?>" class="form-control live-search-box" type="search" placeholder="Search" aria-label="Search" name="s" id="search" autocomplete="off">
                 <div class="input-group-append">
