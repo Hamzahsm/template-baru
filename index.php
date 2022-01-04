@@ -966,7 +966,7 @@
                     <a class="nav-link" href="./about.html">About Us</a>
                     <a class="nav-link" href="contact.html">Contact Us</a>
                     <a class="nav-link" href="return-and-refund.html">Return and Refund</a>
-                    <a class="nav-link" href="privacy-policy.html">Privacy Policy</a>
+                    <a class="nav-link" href="privacy-policy.php">Privacy Policy</a>
                     <a class="nav-link" href="terms-and-conditions-policy.html">Terms and Conditions Policy</a>
                   </div>
                 </div>

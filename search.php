@@ -1,23 +1,11 @@
 <?php 
 
-$con = mysqli_connect("localhost","root","","ssve");
-// Check connection
-if (mysqli_connect_errno()){
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-function query($datas) {
- global $con;
- $result = mysqli_query($con, $datas); 
- $datakosong = [];
-
- while( $isidata = mysqli_fetch_assoc($result)) {
-     $datakosong[] = $isidata;
- }
-
- return $datakosong; 
-}
-
+require 'function.php';
 $datas = query("SELECT * FROM test_pilot");  
+
+if(isset($_GET['cari'])){
+  $datas = cari($_GET['keyword']);
+};
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +78,7 @@ $datas = query("SELECT * FROM test_pilot");
               <div class="input-group-append">
                 <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
               </div>
-            </form>
+            </form> 
 
               <ul class="list-group" id="result"></ul>
           </div>
@@ -974,14 +962,11 @@ $datas = query("SELECT * FROM test_pilot");
                   <ul class="sidebar-nav-light-hover list-unstyled mb-0 text-unset small-3 fw-600">
 
                   <li class="nav-item text-light transition mb-2 active">
-                  <form class="input-group border-0 bg-transparent">
-                    <input class="form-control live-search-box" type="search" placeholder="Search Products" aria-label="Search" name="search" id="search" autocomplete="off">
-                    <div class="input-group-append">
-                      <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
-                    </div>
-                  </form>
 
-                  <ul class="list-group" id="result"></ul>
+                  <form action="" method="get">
+                    <input type="text" name="keyword" placeholder="search..." autocomplete="off">
+                    <button type="submit" name="cari">Search</button>
+                  </form>
                   </li>
 
                     <li class="nav-item text-light transition mb-2 active">

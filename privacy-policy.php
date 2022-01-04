@@ -42,12 +42,11 @@
             </a>
           </div>
           <div class="col-4 d-none d-lg-block mx-auto">
-            <form class="input-group border-0 bg-transparent">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
-              </div>
-            </form>
+              <form action="search.php" method="get">
+                  <input type="text" name="keyword" placeholder="search..." autocomplete="off">
+                  <button type="submit" name="cari">Search</button>
+              </form>
+
           </div>
           <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-4 ml-auto text-right">
             <a class="btn btn-sm btn-warning text-secondary mr-2" href="#" data-toggle="modal" data-target="#userLogin">Sign in</a>
