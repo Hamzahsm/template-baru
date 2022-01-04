@@ -42,9 +42,9 @@
             </a>
           </div>
           <div class="col-4 d-none d-lg-block mx-auto">
-              <form action="search.php" method="get">
-                  <input type="text" name="keyword" placeholder="search..." autocomplete="off">
-                  <button type="submit" name="cari">Search</button>
+              <form action="search.php" method="get" class="input-group border-0 bg-transparent">
+                  <input type="text" name="keyword" placeholder="search..." autocomplete="off" class="form-control live-search-box">
+                  <button type="submit" name="cari" class="btn btn-sm btn-warning text-secondary my-0 mx-0"><i class="fas fa-search"></i></button>
               </form>
 
           </div>

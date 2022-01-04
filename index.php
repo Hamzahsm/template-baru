@@ -60,34 +60,18 @@
 
           <!-- our search query start here -->
           <div class="col-4 d-none d-lg-block mx-auto">
-            <!-- <form class="input-group border-0 bg-transparent">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
-              </div>
-            </form> -->
-               <!-- form input di mulai dari sini -->
-               <!-- <div align="center">
-                <input type="text" name="search" id="search" placeholder="Search Here" class="form-control" />
-              </div> -->
-              <!-- proses menampilkan data setelah query ada di bawah -->
-<!--               <form class="input-group border-0 bg-transparent">
-              <input class="form-control live-search-box" type="search" placeholder="Search" aria-label="Search" name="search" id="search" autocomplete="off">
-              <div class="input-group-append">
-                <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
-              </div>
-            </form>
-
-              <ul class="list-group" id="result"></ul> -->
-
-            <form action="search.php" method="GET" class="input-group border-0 bg-transparent">
+            <!-- <form action="search.php" method="GET" class="input-group border-0 bg-transparent">
               <input value="<?php echo isset($_GET['s']) ? $_GET['s'] : ''; ?>" class="form-control live-search-box" type="search" placeholder="Search" aria-label="Search" name="s" id="search" autocomplete="off">
               <div class="input-group-append">
                 <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit" value="Search" name="search"><i class="fas fa-search"></i></button>
               </div>
             </form>
 
-              <ul class="list-group" id="result"></ul>
+              <ul class="list-group" id="result"></ul> -->
+              <form action="search.php" method="get" class="input-group border-0 bg-transparent">
+                  <input type="text" name="keyword" placeholder="Type here..." autocomplete="off" class="form-control live-search-box">
+                  <button type="submit" name="cari" class="btn btn-sm btn-warning text-secondary my-0 mx-0"><i class="fas fa-search">Search</i></button>
+              </form>
           </div>
           <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-4 ml-auto text-right">
             <a class="btn btn-sm btn-warning text-secondary mr-2" href="#" data-toggle="modal" data-target="#userLogin">Sign in</a>
