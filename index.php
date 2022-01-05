@@ -106,9 +106,9 @@
             <li class="nav-item dropdown dropdown-hover">
               <a class="nav-link dropdown-toggle pl-lg-0" href="#" id="dropdownGaming_games" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products </a>
               <div class="dropdown-menu dropdown-menu-dark-lg" aria-labelledby="dropdownGaming_games">
-                <a class="dropdown-item" href="./product-category/new-world.html">New World</a>
-                <a class="dropdown-item" href="./product-category/guildwars-2.html">Guild Wars 2</a>
-                <a class="dropdown-item" href="./product-category/albion.html">Albion Online</a>
+                <a class="dropdown-item" href="./product-category/new-world.php">New World</a>
+                <a class="dropdown-item" href="./product-category/guildwars-2.php">Guild Wars 2</a>
+                <a class="dropdown-item" href="./product-category/albion.php">Albion Online</a>
                 <a class="dropdown-item" href="./shop.php">All Product</a>
               </div>
             </li>
@@ -162,8 +162,7 @@
                         <h2 class="carousel__heading text-light fadeInDown ad-500ms">Guild Wars 2</h2>
                         <p class="carousel__text lead-1 mb-6 fadeInDown ad-600ms">Guild Wars 2 is a massively multiplayer online role-playing game developed by ArenaNet and published by NCSoft and ArenaNet. Set in the fantasy world of Tyria, the game follows the re-emergence of Destiny's Edge</p>
                         <div class="d-flex fadeInLeft ad-900ms">
-                        <!-- <a class="disabled btn btn-lg bg-dark_A-50 o-1 text-light br-round-0tr br-round-0br parallelogram un_text mb-0"><span class="d-block text-warning"><span class="carousel__discount td-lt text-light">349$</span> 299$</span></a> -->
-                        <a href="./product-category/guildwars-2.html" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Show Service</span></a>
+                        <a href="./product-category/guildwars-2.php" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Show Service</span></a>
                         </div>
                       </div>
                     </div>
@@ -193,8 +192,7 @@
                         <h2 class="carousel__heading text-light fadeInDown ad-500ms">Albion Online</h2>
                         <p class="carousel__text lead-1 mb-6 fadeInDown ad-600ms">Albion Online (AP) is a free medieval fantasy MMORPG developed by Sandbox Interactive, a studio based in Berlin, Germany. Albion online is based on The Arthurian legends</p>
                         <div class="d-flex fadeInLeft ad-900ms">
-                        <!-- <a class="disabled btn btn-lg bg-dark_A-50 o-1 text-light br-round-0tr br-round-0br parallelogram un_text mb-0"><span class="d-block text-warning"><span class="carousel__discount td-lt text-light">349$</span> 299$</span></a> -->
-                        <a href="./product-category/albion.html" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Show Service</span></a>
+                        <a href="./product-category/albion.php" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Show Service</span></a>
                         </div>
                       </div>
                     </div>
@@ -224,8 +222,7 @@
                         <h2 class="carousel__heading text-light fadeInDown ad-500ms">New World</h2>
                         <p class="carousel__text lead-1 mb-6 fadeInDown ad-600ms">New World is a massively multiplayer online role-playing game (MMORPG) developed by Amazon Games Orange County and published by Amazon Games released on September 28, 2021.</p>
                         <div class="d-flex fadeInLeft ad-900ms">
-                        <!-- <a class="disabled btn btn-lg bg-dark_A-50 o-1 text-light br-round-0tr br-round-0br parallelogram un_text mb-0"><span class="d-block text-warning"><span class="carousel__discount td-lt text-light">349$</span> 299$</span></a> -->
-                        <a href="./product-category/new-world.html" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Show Service</span></a>
+                        <a href="./product-category/new-world.php" class="btn btn-lg btn-light parallelogram br-round-0tl br-round-0bl un_text mb-0"><span class="d-block">Show Service</span></a>
                         </div>
                       </div>
                     </div>
