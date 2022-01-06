@@ -1,3 +1,13 @@
+<?php 
+
+require '../function.php';
+$datas = query("SELECT * FROM pilot_posts");  
+
+?>
+
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -109,7 +119,7 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Manage Your Post</h1>
+        <h1 class="h2">MANAGE YOUR POST</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -123,35 +133,34 @@
       </div>
 
     <!-- main content -->
-    <button class="btn btn-primary">Add New</button>
+    <a href="./tambah-post.php"><button class="btn btn-primary">Add New</button></a>
 
     <h5 class="mt-3">Your Products</h5>
 
     <table class="table table-bordered mt-3">
         <thead>
+        <?php $i = 1; ?>
             <tr>
                 <th>No</th>
                 <th >Title</th>
                 <th>Categories</th>
+                <th>Tags</th>
                 <th>Date</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
+        <?php foreach($datas as $data) :?>
             <tr>
-                <td>1</td>
-                <td>Product 1 </td>
-                <td>Guide</td>
-                <td>2/10/2021</td>
+                <td><?= $i; ?></td>
+                <td><?= $data["title"];?></td>
+                <td><?= $data["category"];?></td>
+                <td><?= $data["tag"];?></td>
+                <td><?= $data["date"];?></td>
                 <td><button class="btn btn-success">Edit</button> <button class="btn btn-danger">Delete</button></td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Product 2 </td>
-                <td>Our Service</td>
-                <td>4/1/2022</td>
-                <td><button class="btn btn-success">Edit</button> <button class="btn btn-danger">Delete</button></td>
-            </tr>
+            <?php $i++;?>
+          <?php endforeach; ?>
         </tbody>
     </table>
     <!-- end main content -->

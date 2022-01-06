@@ -1,3 +1,8 @@
+<?php 
+
+$con = mysqli_connect("localhost", "u705028021_templatepilot", "templatepilot123NEW", "u705028021_templatepilot");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

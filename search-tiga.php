@@ -1,15 +1,11 @@
+<?php 
 
+require 'function.php';
+$datas = query("SELECT * FROM wp_ttypsqzsk0_wc_product_meta_lookup");  
 
-<?php
-
-if(isset($_GET["search"])){
-    $title = $_GET["s"];
-
-    $conn = mysqli_connect("localhost","root","","ssve");
-    $query    =mysqli_query($conn, "SELECT * FROM test_pilot WHERE title = $title");
-    $result    =mysqli_fetch_array($query);
-}
-
+if(isset($_GET['cari'])){
+  $datas = cari($_GET['keyword']);
+};
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +14,7 @@ if(isset($_GET["search"])){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shop - MMOPILOT</title>
+    <title>Search - MMOPILOT</title>
 
     <!-- CSS -->
     <link href="assets/css/fonts/etline-font.min.css" rel="stylesheet">
@@ -71,20 +67,13 @@ if(isset($_GET["search"])){
             </a>
           </div>
           <div class="col-4 d-none d-lg-block mx-auto">
-            <!-- <form class="input-group border-0 bg-transparent">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
-              </div>
-            </form> -->
-            <form class="input-group border-0 bg-transparent">
-              <input class="form-control live-search-box" type="search" placeholder="Search" aria-label="Search" name="search" id="search" autocomplete="off">
-              <div class="input-group-append">
-                <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
-              </div>
-            </form>
+              <form action="" method="get" class="input-group border-0 bg-transparent">
+                  <input type="text" name="keyword" placeholder="search..." autocomplete="off" class="form-control live-search-box">
 
-              <ul class="list-group" id="result"></ul>
+                  <div class="input-group-append">
+                    <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit" name="cari"><i class="fas fa-search"></i></button>
+                </div>
+              </form>
           </div>
           <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-4 ml-auto text-right">
             <a class="btn btn-sm btn-warning text-secondary mr-2" href="#" data-toggle="modal" data-target="#userLogin">Sign in</a>
@@ -143,166 +132,6 @@ if(isset($_GET["search"])){
     </nav>
     <!-- /.navbar -->
 
-    <!-- header -->
-    <header class="header">
-      <!-- content area -->
-      <section class="content-section text-light br-n bs-c bp-c" style="background-image: url(assets/img/bg/bg_shape.png);">
-        <div class="container">
-          <div class="header text-left">
-            <h2>Best Deals</h2>
-          </div>
-          <div id="storeCarousel" class="carousel-spotlight carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-
-              <!-- carousel item -->
-              <div class="carousel-item active">
-                <div class="row">
-                  <div class="col-lg-8 pr-lg-1">
-                    <a href="#">
-                      <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(assets/img/content/carousel/1.png);">
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-lg-4 d-none d-lg-block pl-lg-1">
-                    <div class="row no-gutters h-100">
-                      <div class="col-12 pb-1">
-                        <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png);"></div>
-                        </a>
-                      </div>
-                      <div class="col-12 pt-1">
-                        <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png);"></div>
-                        </a>
-                      </div>
-                    </div>  
-                  </div>
-                  <div class="col-12">
-                    <div class="bg-dark d-flex p-4">
-                      <div class="flex-1 d-flex align-items-center">
-                        <h5 class="mb-0"><a href="#">PROMO 1</a></h5>
-                      </div>
-                      <div class="price d-none d-md-flex flex-wrap align-items-center">
-                        <div class="px-3 py-1 my-md-3 my-lg-0 bg-warning text-secondary rounded"><span class="fw-600">-30%</span></div>
-                        <div class="pl-3 d-flex flex-column my-md-3 my-lg-0 lh-1">
-                          <span class="small discount fw-600 td-lt mb-1">€144.99</span>
-                          <span class="discount_final lead-2">€99.99</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.carousel item -->
-
-              <!-- carousel item -->
-              <div class="carousel-item">
-                <div class="row">
-                  <div class="col-lg-8 pr-lg-1">
-                    <a href="#">
-                      <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(assets/img/content/carousel/choose.png);">
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-lg-4 d-none d-lg-block pl-lg-1">
-                    <div class="row no-gutters h-100">
-                      <div class="col-12 pb-1">
-                        <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png);"></div>
-                        </a>
-                      </div>
-                      <div class="col-12 pt-1">
-                        <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png);"></div>
-                        </a>
-                      </div>
-                    </div>  
-                  </div>
-                  <div class="col-12">
-                    <div class="bg-dark d-flex p-4">
-                      <div class="flex-1 d-flex align-items-center">
-                        <h5 class="mb-0"><a href="#">Exploration Memories</a></h5>
-                      </div>
-                      <div class="price d-none d-md-flex flex-wrap align-items-center">
-                        <div class="px-3 py-1 my-md-3 my-lg-0 bg-warning text-secondary rounded"><span class="fw-600">-30%</span></div>
-                        <div class="pl-3 d-flex flex-column my-md-3 my-lg-0 lh-1">
-                          <span class="small discount fw-600 td-lt mb-1">€144.99</span>
-                          <span class="discount_final lead-2">€99.99</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.carousel item -->
-
-              <!-- carousel item -->
-              <div class="carousel-item">
-                <div class="row">
-                  <div class="col-lg-8 pr-lg-1">
-                    <a href="#">
-                      <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(assets/img/content/cont/landing_page_our_services_07.png);">
-                      </div>
-                    </a>
-                  </div>
-                  <div class="col-lg-4 d-none d-lg-block pl-lg-1">
-                    <div class="row no-gutters h-100">
-                      <div class="col-12 pb-1">
-                        <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png);"></div>
-                        </a>
-                      </div>
-                      <div class="col-12 pt-1">
-                        <a href="#">
-                          <div class="d-flex h-100 bs-c br-n bp-c position-relative" style="background-image: url(assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png);"></div>
-                        </a>
-                      </div>
-                    </div>  
-                  </div>
-                  <div class="col-12">
-                    <div class="bg-dark d-flex p-4">
-                      <div class="flex-1 d-flex align-items-center">
-                        <h5 class="mb-0"><a href="#">Exploration Memories</a></h5>
-                      </div>
-                      <div class="price d-none d-md-flex flex-wrap align-items-center">
-                        <div class="px-3 py-1 my-md-3 my-lg-0 bg-warning text-secondary rounded"><span class="fw-600">-30%</span></div>
-                        <div class="pl-3 d-flex flex-column my-md-3 my-lg-0 lh-1">
-                          <span class="small discount fw-600 td-lt mb-1">€144.99</span>
-                          <span class="discount_final lead-2">€99.99</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.carousel item -->
-
-            </div>
-
-            <!-- left and right controls -->
-            <a class="carousel-control-prev light" href="#storeCarousel" data-slide="prev">
-              <span class="icon-cl-prev pe-7s-angle-left lead-6 px-2 py-2"></span>
-            </a>
-            <a class="carousel-control-next light" href="#storeCarousel" data-slide="next">
-              <span class="icon-cl-next pe-7s-angle-right lead-6 px-2 py-2"></span>
-            </a>
-            <!-- /.left and right controls -->
-
-            <!-- indicators -->
-            <ul class="carousel-indicators indicators-square">
-              <li data-target="#storeCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#storeCarousel" data-slide-to="1"></li>
-              <li data-target="#storeCarousel" data-slide-to="2"></li>
-            </ul>
-            <!-- /.indicators -->
-
-          </div>
-        </div>
-      </section>
-      <!-- /.content area -->
-    </header>
-    <!-- /.header -->
-
     <!-- main content -->
     <main class="main-content">
 
@@ -310,13 +139,13 @@ if(isset($_GET["search"])){
       <section class="content-section top_sellers carousel-spotlight ig-carousel pt-0 text-light">
         <div class="container">
           <header class="header">
-            <h2>Most popular products</h2>
+            <h2>Result Of </h2>
           </header>
           <div class="position-relative">
             <div class="row">
               <div class="col-lg-8">
                 <!-- nav tabs -->
-                <ul class="spotlight-tabs spotlight-tabs-dark nav nav-tabs border-0 mb-5 position-relative flex-nowrap" id="most_popular_products-carousel-01" role="tablist">
+                <!-- <ul class="spotlight-tabs spotlight-tabs-dark nav nav-tabs border-0 mb-5 position-relative flex-nowrap" id="most_popular_products-carousel-01" role="tablist">
                   <li class="nav-item text-fnwp position-relative">
                     <a class="nav-link active show" id="mp-2-01-tab" data-toggle="tab" href="#mp-2-01-c" role="tab" aria-controls="mp-2-01-c" aria-selected="true">New</a>
                   </li>
@@ -326,7 +155,7 @@ if(isset($_GET["search"])){
                   <li class="nav-item text-fnwp position-relative"> 
                     <a class="nav-link" id="mp-2-03-tab" data-toggle="tab" href="#mp-2-03-c" role="tab" aria-controls="mp-2-03-c" aria-selected="false">Coming Soon</a>
                   </li>
-                </ul>
+                </ul> -->
                 <!-- /.nav tabs -->
                 <!-- tab panes -->
                 <div id="color_sel_Carousel-content_02" class="tab-content position-relative w-100">
@@ -334,6 +163,7 @@ if(isset($_GET["search"])){
                   <div class="tab-pane fade active show" id="mp-2-01-c" role="tabpanel" aria-labelledby="mp-2-01-tab">
                     <div class="row">
                       <!-- item -->
+                    <?php foreach($datas as $data) :?>
                       <div class="col-md-12 mb-4">
                         <a href="./power-leveling-150.html" class="product-item">
                           <div class="row align-items-center no-gutters">
@@ -341,191 +171,36 @@ if(isset($_GET["search"])){
                               <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store" >
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1"><?php echo $result['title']; ?></h6>
+                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1"><?= $data["product_id"];?></h6>
                               <div class="mb-0">
                                 <i class="mr-2 fab fa-windows"></i>
                                 <i class="mr-2 fab fa-steam"></i>
                                 <i class="fab fa-apple"></i>
                               </div>
                               <div class="position-relative">
-                                <span class="item_genre small fw-600"><?php echo $result['genre']; ?></span>
+                                <span class="item_genre small fw-600"><?= $data["total_sales"];?></span>
                               </div>
                             </div>
                             <div class="item_discount d-none d-sm-block">
                               <div class="row align-items-center h-100 no-gutters">
                                 <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning"><?php echo $result['discount']; ?></span>
+                                  <span class="fw-600 btn bg-warning"><?= $data["sku"];?></span>
                                 </div>
                               </div>
                             </div>
                             <div class="item_price">
                               <div class="row align-items-center h-100 no-gutters">
                                 <div class="text-right">
-                                  <span class="fw-600 td-lt"><?php echo $result['harga']; ?></span><br>
-                                  <span class="fw-600"><?php echo $result['sale']; ?></span>
+                                  <span class="fw-600 td-lt"><?= $data["min_price"];?></span><br>
+                                  <span class="fw-600"><?= $data["max_price"];?></span>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </a>
                       </div>
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Power Leveling 1-60</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  MMORPG, NEW WORLD
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Power Leveling 1-50</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  MMORPG, NEW WORLD
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Power Leveling 1-60</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  MMORPG, NEW WORLD
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Power Leveling 1-50</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  MMORPG, NEW WORLD
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
+                    <?php endforeach; ?>
+
                     </div>
                   </div>
                   <!-- /.tab item -->
@@ -571,163 +246,8 @@ if(isset($_GET["search"])){
                           </div>
                         </a>
                       </div>
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  Action, Adventure
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  Action, Adventure
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  Action, Adventure
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  Action, Adventure
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
+                      
+
                     </div>
                   </div>
                   <!-- /.tab item -->
@@ -773,164 +293,8 @@ if(isset($_GET["search"])){
                           </div>
                         </a>
                       </div>
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  Action, Adventure
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_
-                              MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  Action, Adventure
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  Action, Adventure
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
-                      <!-- item -->
-                      <!-- <div class="col-md-12 mb-4">
-                        <a href="store-product.html" class="product-item">
-                          <div class="row align-items-center no-gutters">
-                            <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_60_NEW_WORLD_MMOPILOT.png" alt="Games Store">
-                            </div>
-                            <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1">Integer sagittis semper</h6>
-                              <div class="mb-0">
-                                <i class="mr-2 fab fa-windows"></i>
-                                <i class="mr-2 fab fa-steam"></i>
-                                <i class="fab fa-apple"></i>
-                              </div>
-                              <div class="position-relative">
-                                <span class="item_genre small fw-600">
-                                  Action, Adventure
-                                </span>
-                              </div>
-                            </div>
-                            <div class="item_discount d-none d-sm-block">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right text-secondary px-6">
-                                  <span class="fw-600 btn bg-warning">-50%</span>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="item_price">
-                              <div class="row align-items-center h-100 no-gutters">
-                                <div class="text-right">
-                                  <span class="fw-600 td-lt">€144.99</span><br>
-                                  <span class="fw-600">€44.99</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </a>
-                      </div> -->
-                      <!-- /.item -->
+                      
+
                     </div>
                   </div>
                   <!-- /.tab item -->
@@ -964,14 +328,14 @@ if(isset($_GET["search"])){
                   <ul class="sidebar-nav-light-hover list-unstyled mb-0 text-unset small-3 fw-600">
 
                   <li class="nav-item text-light transition mb-2 active">
-                  <form class="input-group border-0 bg-transparent">
-                    <input class="form-control live-search-box" type="search" placeholder="Search Products" aria-label="Search" name="search" id="search" autocomplete="off">
+
+                  <form action="" method="get" class="input-group border-0 bg-transparent">
+                    <input type="text" name="keyword" placeholder="search..." autocomplete="off" class="form-control live-search-box">
+
                     <div class="input-group-append">
-                      <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
+                      <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit" name="cari"><i class="fas fa-search"></i></button>
                     </div>
                   </form>
-
-                  <ul class="list-group" id="result"></ul>
                   </li>
 
                     <li class="nav-item text-light transition mb-2 active">
@@ -1559,7 +923,7 @@ if(isset($_GET["search"])){
           </div>
         </div>
       </div>
-      <div>
+      <div> 
         <a href="checkout-order.html" class="btn btn-lg btn-block btn-outline-light">View cart</a>
       </div>
     </div>
