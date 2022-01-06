@@ -3,6 +3,7 @@
 $con = mysqli_connect("localhost", "u705028021_templatepilot", "templatepilot123NEW", "u705028021_templatepilot");
 
 if (isset($_POST['publish'])) {
+  global $con;
   $title = $_POST['title'];
   $deskripsi = $_POST['deskripsi'];
   $category = $_POST['category'];
@@ -10,14 +11,18 @@ if (isset($_POST['publish'])) {
   $image = $_POST['image'];
   $date = date("Y-m-d");
 
-  $query = "INSERT INTO pilot_posts (title, category, tag, image, deskripsi, date ) VALUES ('$title, $category, $tag, $image,  $deskripsi , $date')";
+  $query = "INSERT INTO pilot_posts (title, category, tag, image, deskripsi, date ) VALUES ('$title', '$category', '$tag', '$image',  '$deskripsi' , '$date')";
 
   $query_run = mysqli_query($con, $query);
 
   if ($query_run) {
-    header("Location: index.php");
+    echo "<script>alert('Insert Successfully');
+    document.location.href = 'index.php';</script>";
+    // header("Location: index.php");
   } else {
-    header("Location: tambah-post.php");
+    echo "<script>alert('Failed to Upload');
+    document.location.href = 'tambah-post.php';</script>";
+    // header("Location: tambah-post.php");
   }
 };
 
@@ -122,16 +127,10 @@ if (isset($_POST['publish'])) {
             </div>
             <div class="col-4">
               <h5 class="mt-3">Category</h5>
-              <input type="checkbox" class="form-check-input" value="satu"> satu <br>
-              <input type="checkbox" class="form-check-input" value="dua"> dua <br>
-              <input type="checkbox" class="form-check-input" value="tiga"> tiga <br>
-              <input type="checkbox" class="form-check-input" value="empat"> empat <br>
-              <input type="checkbox" class="form-check-input" value=""> lima <br>
-              <input type="checkbox" class="form-check-input" value=""> enam <br>
-              <input type="checkbox" class="form-check-input" value=""> tujuh <br>
-              <input type="checkbox" class="form-check-input" value=""> delapan <br>
-              <input type="checkbox" class="form-check-input" value=""> sembilan <br>
-              <input type="checkbox" class="form-check-input" value=""> sepuluh <br>
+              <input type="checkbox" class="form-check-input" value="Guide" name="category"> Guide <br>
+              <input type="checkbox" class="form-check-input" value="Guild Wars 2" name="category"> Guild Wars 2 <br>
+              <input type="checkbox" class="form-check-input" value="Albion Online" name="category"> Albion Online <br>
+              <input type="checkbox" class="form-check-input" value="New World" name="category"> New World <br>
 
               <h5 class="mt-3">Tags</h5>
               <input type="text" class="form-control" name="tag">
