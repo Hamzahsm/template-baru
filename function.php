@@ -1,7 +1,8 @@
 <?php
 
 // koneksi 
-    $con = mysqli_connect("localhost","root","","ssve");
+    // $con = mysqli_connect("localhost","root","","ssve");
+    $con = mysqli_connect("localhost", "u705028021_templatepilot", "templatepilot123NEW", "u705028021_templatepilot");
 
     if (mysqli_connect_errno()){
         echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -22,10 +23,8 @@
 
 // function cari 
     function cari($keyword){
-        $query = "SELECT * FROM test_pilot WHERE title LIKE '%$keyword%' OR genre LIKE '%$keyword%'";
+        $query = "SELECT * FROM pilot_products WHERE title LIKE '%$keyword%' OR genre LIKE '%$keyword%'";
 
         return query($query);
 
     };
-
-?>
