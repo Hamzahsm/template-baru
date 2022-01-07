@@ -125,10 +125,10 @@ $datas = query("SELECT * FROM pilot_products");
                 <td><?= $data["tags"];?> </td>
                 <td><?= $data["regularprice"];?></td>
                 <td><?= $data["date"];?></td>
-                <td><button class="btn btn-success">Edit</button> <button class="btn btn-danger">Delete</button></td>
+                <td><a href="edit-product.php?id=<?= $data['id']; ?>"> <button class="btn btn-success">Edit</button></a> <a href="delete-product.php?id=<?= $data['id']; ?>" onclick="return confirm('Apakah Anda Yakin?')"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             <?php $i++;?>
-          <?php endforeach; ?>
+          <?php endforeach; ?>  
             <!-- <tr>
                 <td>2</td>
                 <td>Product 2</td>

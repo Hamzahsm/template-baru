@@ -1,3 +1,36 @@
+<?php
+
+$con = mysqli_connect("localhost", "u705028021_templatepilot", "templatepilot123NEW", "u705028021_templatepilot");
+
+if (isset($_POST['publish'])) {
+  global $con;
+  $title = $_POST['title'];
+  $slug = $_POST['slug'];
+  $deskripsi = $_POST['deskripsi'];
+  $category = $_POST['category'];
+  $tag = $_POST['tags'];
+  $regularprice = $_POST['regularprice'] ;
+  $saleprice = $_POST['saleprice'];
+  $image = $_POST['image'];
+  $date = date("Y-m-d");
+
+  $query = "INSERT INTO pilot_products (title, category, tags, image, regularprice, saleprice, deskripsi, slug, date ) VALUES ('$title', '$category', '$tag', '$image', '$regularprice', '$saleprice',  '$deskripsi' , '$slug' , '$date')";
+
+  $query_run = mysqli_query($con, $query);
+
+  if ($query_run) {
+    echo "<script>alert('Produk berhasil ditambahkan!');
+    document.location.href = 'products.php';</script>";
+    // header("Location: index.php");
+  } else {
+    echo "<script>alert('Oops, gagal menambahkan produk!');
+    document.location.href = 'tambah-produk.php';</script>";
+    // header("Location: tambah-post.php");
+  }
+};
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -90,11 +123,14 @@
       </div>
 
     <!-- main content -->
-    <form action="">
+    <form action="tambah-produk.php" method="POST" enctype="multipart/form-data">
     <div class="row">
             <div class="col-8 mb-5">
                     <h5>Title</h5>
                     <input type="text" name="title" autocomplete="off" class="form-control">
+
+                    <h5>Slug</h5>
+                    <input type="text" name="slug" autocomplete="off" class="form-control" value="https://mmopilot.com/product/">
 
                     <h5 class="mt-3">Deskripsi</h5>
                     <textarea name="deskripsi" id="" cols="100" rows="10"></textarea>
@@ -108,24 +144,17 @@
             </div>
             <div class="col-4">
                 <h5 class="mt-3">Category</h5>
-                <input type="checkbox" class="form-check-input"> satu <br>
-                <input type="checkbox" class="form-check-input"> dua <br>
-                <input type="checkbox" class="form-check-input"> tiga <br>
-                <input type="checkbox" class="form-check-input"> empat <br>
-                <input type="checkbox" class="form-check-input"> lima <br>
-                <input type="checkbox" class="form-check-input"> enam <br>
-                <input type="checkbox" class="form-check-input"> tujuh <br>
-                <input type="checkbox" class="form-check-input"> delapan <br>
-                <input type="checkbox" class="form-check-input"> sembilan <br>
-                <input type="checkbox" class="form-check-input"> sepuluh <br>
+                <input type="checkbox" class="form-check-input" name="category" value="Guild Wars 2"> Guild Wars 2 <br>
+                <input type="checkbox" class="form-check-input" name="category" value="Albion Online"> Albion Online <br>
+                <input type="checkbox" class="form-check-input" name="category" value="New World"> New World <br>
 
                 <h5 class="mt-3">Tags</h5>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="tags">
 
                 <h5 class="mt-3">Product Image</h5>
-                <input type="file" > <br><br>
+                <input type="file" name="image"> <br><br>
 
-                <button type="submit" class="btn btn-primary mt-3" >Publish</button>
+                <button type="submit" class="btn btn-primary mt-3" name="publish">Publish</button>
             </div>
     </div>
     </form>

@@ -4,7 +4,7 @@ $id = $_GET['id'];
 
 // $conn = mysqli_connect("localhost", "u705028021_loginsystem", "Loginsystem321", "u705028021_loginsystem");
 $conn = mysqli_connect("localhost", "u705028021_templatepilot", "templatepilot123NEW", "u705028021_templatepilot");
-$query    = mysqli_query($conn, "SELECT * FROM pilot_posts WHERE id= $id ");
+$query    = mysqli_query($conn, "SELECT * FROM pilot_products WHERE id= $id ");
 $result    = mysqli_fetch_array($query);
 
 ?>
@@ -13,24 +13,22 @@ $result    = mysqli_fetch_array($query);
 
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];
-    $deskripsi = $_POST['deskripsi'];
     $slug = $_POST['slug'];
-    $serp = $_POST['serp'];
+    $deskripsi = $_POST['deskripsi'];
+    $regularprice = $_POST['regularprice'];
+    $saleprice = $_POST['saleprice'];
     $category = $_POST['category'];
-    $tag = $_POST['tag'];
-    $image = $_POST['image'];
-    $date = date("Y-m-d");
+    $tags = $_POST['tags'];
 
     // query start here
-    $query = "UPDATE pilot_posts SET 
-        title = '$title', 
-        deskripsi = '$deskripsi',
+    $query = "UPDATE pilot_products SET 
+        title = '$title',
         slug = '$slug',
-        serp = '$serp',
-        category = '$category', 
-        tag = '$tag',
-        image = '$image', 
-        date = '$date' WHERE id = '$id'";
+        deskripsi = '$deskripsi',
+        regularprice = '$regularprice',
+        saleprice = '$saleprice',
+        category = '$category',
+        tags = '$tags' WHERE id = '$id'";
 
     // $result = mysqli_query($con, $query)  or die (mysqli_error($con)) ;
 
@@ -38,9 +36,10 @@ if (isset($_POST['submit'])) {
 
     if ($result) {
         echo "<script>alert('Data Berhasil di update');
-            document.location.href='./index.php'; </script>";
+            document.location.href='./products.php'; </script>";
     } else {
-        echo "<script>alert('Data Gagal Di Update');</script>";
+        echo "<script>alert('Data Gagal Di Update');
+        document.location.href='./products.php';</script>";
     }
 }
 ?>
@@ -139,17 +138,20 @@ if (isset($_POST['submit'])) {
                             <label for="" class="form-label fw-bold mt-3">Slug</label>
                             <input type="text" name="slug" autocomplete="off" class="form-control" value="<?php echo $result['slug']; ?>">
 
-                            <label for="" class="form-label fw-bold mt-3">Serp</label><br>
-                            <textarea name="serp" id="" cols="100" rows="10"><?php echo $result['serp']; ?></textarea><br><br>
-
                             <label for="" class="form-label fw-bold mt-3">Deskripsi</label>
                             <textarea name="deskripsi" id="" cols="100" rows="18" class="mt-1"><?php echo $result['deskripsi']; ?></textarea> <br><br>
+
+                            <label for="" class="form-label fw-bold mt-3">Regular Price</label>
+                            <input type="text" id="" name="regularpricce" autocomplete="off" class="form-control" value="<?php echo $result['regularprice']; ?>">
+
+                            <label for="" class="form-label fw-bold mt-3">Sale Price</label>
+                            <input type="text" id="" name="saleprice" autocomplete="off" class="form-control" value="<?php echo $result['saleprice']; ?>">
 
                             <label for="" class="form-label fw-bold mt-3">Category</label>
                             <input type="text" id="" name="category" autocomplete="off" class="form-control" value="<?php echo $result['category']; ?>">
 
                             <label for="" class="form-label fw-bold mt-3">Tags</label>
-                            <input type="text" id="" name="tag" autocomplete="off" class="form-control" value="<?php echo $result['tag']; ?>">
+                            <input type="text" id="" name="tags" autocomplete="off" class="form-control" value="<?php echo $result['tags']; ?>">
 
                             <div class="form-group mb-4 mt-5 text-center">
                                 <button type="submit" name="submit" class="btn btn-primary">Update</button>

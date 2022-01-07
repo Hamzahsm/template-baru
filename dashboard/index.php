@@ -162,7 +162,7 @@ $datas = query("SELECT * FROM pilot_posts");
                 <td><a href="edit-post.php?id=<?= $data['id']; ?>"> <button class="btn btn-success">Edit</button></a> <a href="delete-post.php?id=<?= $data['id']; ?>" onclick="return confirm('Apakah Anda Yakin?')"><button class="btn btn-danger">Delete</button></a></td>
               </tr>
               <?php $i++; ?>
-            <?php endforeach; ?>
+            <?php endforeach; ?> 
           </tbody>
         </table>
         <!-- end main content -->

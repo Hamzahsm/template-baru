@@ -9,18 +9,20 @@ if (isset($_POST['publish'])) {
   $category = $_POST['category'];
   $tag = $_POST['tag'];
   $image = $_POST['image'];
+  $serp = $_POST['serp'];
+  $slug = $_POST['slug'];
   $date = date("Y-m-d");
 
-  $query = "INSERT INTO pilot_posts (title, category, tag, image, deskripsi, date ) VALUES ('$title', '$category', '$tag', '$image',  '$deskripsi' , '$date')";
+  $query = "INSERT INTO pilot_posts (title, category, tag, image, deskripsi, serp, slug, date ) VALUES ('$title', '$category', '$tag', '$image',  '$deskripsi', '$serp', '$slug', '$date')";
 
   $query_run = mysqli_query($con, $query);
 
   if ($query_run) {
-    echo "<script>alert('Insert Successfully');
+    echo "<script>alert('Post Berhasil Ditambahkan! ');
     document.location.href = 'index.php';</script>";
     // header("Location: index.php");
   } else {
-    echo "<script>alert('Failed to Upload');
+    echo "<script>alert('Oops, Post gagal ditambahkan!');
     document.location.href = 'tambah-post.php';</script>";
     // header("Location: tambah-post.php");
   }
@@ -118,12 +120,14 @@ if (isset($_POST['publish'])) {
               <h5>Title</h5>
               <input type="text" name="title" autocomplete="off" class="form-control">
 
+              <h5 class="mt-3">Slug</h5>
+              <input type="text" name="slug" autocomplete="off" class="form-control" value="https://mmopilot.com/">
 
+              <h5 class="mt-3">Serp</h5>
+              <textarea name="serp" id="" cols="100" rows="13" maxlength="150"></textarea>
 
               <h5 class="mt-3">Deskripsi</h5>
               <textarea name="deskripsi" id="" cols="100" rows="18"></textarea>
-
-
             </div>
             <div class="col-4">
               <h5 class="mt-3">Category</h5>
