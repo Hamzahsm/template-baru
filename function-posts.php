@@ -22,20 +22,10 @@ function query($datas)
     return $datakosong;
 };
 
-// function cari product
+// function cari 
 function cari($keyword)
-{
-    $query = "SELECT * FROM pilot_products WHERE title LIKE '%$keyword%' OR category LIKE '%$keyword%'";
-
-    return query($query);
-};
-
-//function cari artikel
-
-function caripost($keyword)
 {
     $query = "SELECT * FROM pilot_posts WHERE title LIKE '%$keyword%' OR category LIKE '%$keyword%'";
 
     return query($query);
 };
-

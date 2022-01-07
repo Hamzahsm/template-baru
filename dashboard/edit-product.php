@@ -142,7 +142,7 @@ if (isset($_POST['submit'])) {
                             <textarea name="deskripsi" id="" cols="100" rows="18" class="mt-1"><?php echo $result['deskripsi']; ?></textarea> <br><br>
 
                             <label for="" class="form-label fw-bold mt-3">Regular Price</label>
-                            <input type="text" id="" name="regularpricce" autocomplete="off" class="form-control" value="<?php echo $result['regularprice']; ?>">
+                            <input type="text" id="" name="regularprice" autocomplete="off" class="form-control" value="<?php echo $result['regularprice']; ?>">
 
                             <label for="" class="form-label fw-bold mt-3">Sale Price</label>
                             <input type="text" id="" name="saleprice" autocomplete="off" class="form-control" value="<?php echo $result['saleprice']; ?>">

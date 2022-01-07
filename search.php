@@ -6,7 +6,7 @@ $datas = query("SELECT * FROM test_pilot");
 if (isset($_GET['cari'])) {
   $datas = cari($_GET['keyword']);
 };
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -165,7 +165,7 @@ if (isset($_GET['cari'])) {
                 <!-- tab item -->
                 <div class="tab-pane fade active show" id="mp-2-01-c" role="tabpanel" aria-labelledby="mp-2-01-tab">
                   <div class="row">
-                    <!-- item -->
+                    <!-- item --> 
                     <?php foreach ($datas as $data) : ?>
                       <div class="col-md-12 mb-4">
                         <a href="./power-leveling-150.html" class="product-item">

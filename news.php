@@ -1,3 +1,13 @@
+<?php
+
+require 'function.php';
+$datas = query("SELECT * FROM pilot_posts");
+
+if (isset($_GET['cari'])) {
+  $datas = caripost($_GET['keyword']);
+};
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +26,7 @@
   <link href="assets/plugins/owl.carousel/owl.carousel.min.css" rel="stylesheet">
 
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/styles.css" rel="stylesheet">
+  <link href="assets/css/styles.css" rel="stylesheet"> 
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -169,6 +179,9 @@
                 <div class="tab-pane fade active show" id="mp-2-01-c" role="tabpanel" aria-labelledby="mp-2-01-tab">
                   <div class="row news-list">
                     <!-- item -->
+
+                    <!-- looping dari sini -->
+                    <?php foreach ($datas as $data) : ?>
                     <div class="news-item col-12 mb-4">
                       <div class="row">
                         <div class="col-lg-4 mb-5 mb-lg-0">
@@ -183,12 +196,12 @@
                         </div>
                         <div class="col-lg-8">
                           <div class="text-gray">
-                            <h5 class="text-uppercase fw-600"><a href="news-article.html">Mauris ornare</a></h5>
+                            <h5 class="text-uppercase fw-600"><a href="detail-post.php?id=<?= $data['id']; ?>"><?= $data["title"]; ?></a></h5>
                             <div class="small-3 mb-2">
-                              <span class="mr-2"><i class="fas fa-calendar-alt mr-1"></i> 8:11pm</span>
+                              <span class="mr-2"><i class="fas fa-calendar-alt mr-1"></i><?= $data['date']; ?></span>
                               <a href="news-article.html" class="comments"><i class="fas fa-comment-alt mr-1"></i> <span>7</span> comments</a>
                             </div>
-                            <p>Aliquam ipsum elit, lobortis et elit ultrices, suscipit hendrerit ligula. Morbi vulputate, urna in tincidunt lacinia, orci lectus convallis lectus, vel dictum felis urna eget nisi. Proin ac bibendum diam.</p>
+                            <p><?= $data["serp"]; ?></p>
                           </div>
                         </div>
                         <div class="col-12 mt-2">
@@ -204,6 +217,10 @@
                         </div>
                       </div>
                     </div>
+                    <?php endforeach; ?>
+
+                    <!-- looping berakhir  -->
+
                     <!-- /.item -->
                   </div>
                 </div>
@@ -278,11 +295,12 @@
             </div>
             <div class="col-lg-4">
               <div class="rounded mb-4">
-                <form class="input-group border-0 input-transparent bg-transparent">
-                  <input class="form-control border border-secondary border-right-0" type="search" placeholder="Type something.." aria-label="Search">
-                  <div class="input-group-append">
-                    <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit"><i class="fas fa-search"></i></button>
-                  </div>
+                <form action="" method="get" class="input-group border-0 bg-transparent">
+                      <input type="text" name="keyword" placeholder="search..." autocomplete="off" class="form-control live-search-box">
+
+                    <div class="input-group-append">
+                      <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit" name="cari"><i class="fas fa-search"></i></button>
+                    </div>
                 </form>
               </div>
               <div class="filters border border-secondary rounded p-4 mb-4">

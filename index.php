@@ -60,14 +60,6 @@
 
           <!-- our search query start here -->
           <div class="col-4 d-none d-lg-block mx-auto">
-            <!-- <form action="search.php" method="GET" class="input-group border-0 bg-transparent">
-              <input value="<?php echo isset($_GET['s']) ? $_GET['s'] : ''; ?>" class="form-control live-search-box" type="search" placeholder="Search" aria-label="Search" name="s" id="search" autocomplete="off">
-              <div class="input-group-append">
-                <button class="btn btn-sm btn-warning text-secondary my-0 mx-0" type="submit" value="Search" name="search"><i class="fas fa-search"></i></button>
-              </div>
-            </form>
-
-              <ul class="list-group" id="result"></ul> -->
               <form action="search.php" method="get" class="input-group border-0 bg-transparent">
                   <input type="text" name="keyword" placeholder="Type here..." autocomplete="off" class="form-control live-search-box">
                   <button type="submit" name="cari" class="btn btn-sm btn-warning text-secondary my-0 mx-0"><i class="fas fa-search">Search</i></button>
@@ -964,6 +956,8 @@
           </div>
       </div>
     </footer>
+
+    
     <!-- /.footer -->
 
     <!-- sign Up -->
