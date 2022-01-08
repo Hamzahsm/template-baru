@@ -706,6 +706,8 @@
       </section>
       <!-- /.content area -->
 
+
+
       <!-- content area -->
       <section class="section gs_features">
         <div class="row no-gutters">
@@ -776,6 +778,47 @@
         </div>
       </section>
       <!-- /.content area -->
+
+            <!-- count service  -->
+
+            <div class="content-section container " >
+        <div class="row">
+          <div class="col text-white text-center ">
+            <h2 class="text-uppercase mt-8" style="font-weight: bold;">43</h2>
+            <h5>Customer This Month</h5>
+          </div>
+          <div class="col text-white text-center">
+            <h2 style="font-weight: bold;" class="mt-8">1254</h2>
+            <h5>Completed Orders</h5>
+          </div>
+          <div class="col text-center">
+            <h2 style="color: #FFAD00; font-weight: bold; font-size: 50px;" class="mt-7">99%</h2>
+            <h5 style="color: #FFAD00;">Customers Were Satisfied</h5>
+          </div>
+          <div class="col text-white text-center">
+            <h3 style="font-weight: bold;" class="mt-8">CHECK US</h3>
+            <h5><i class="fas fa-arrow-circle-right" style="font-size: 50px;"></i></h5>
+          </div>
+          <div class="col">
+            <p><a href="https://www.epicnpc.com/members/mmopilot-com.680058/" target="_blank"><img src="https://mmopilot.com/wp-content/uploads/2021/10/epicnpc_border.png" alt=""></a></p>
+            <p><a href="https://www.trustpilot.com/review/mmopilot.com" target="_blank"><img src="https://mmopilot.com/wp-content/uploads/2021/02/Trustpilot_border_white.png" alt=""></a></p>
+            <p><a href="https://www.playerauctions.com/store/r4y4p/" target="_blank"><img src="https://mmopilot.com/wp-content/uploads/2021/02/AUCTIONS_border_white.png" alt=""></a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ./count service -->
+
+            <!-- truspilot -->
+            <div class="content-section text-center ">
+        <div class=" text-white">
+          <h4><a href="https://www.trustpilot.com/review/mmopilot.com" target="_blank"><span>See our 219 reviews on </span><span><img src="https://mmopilot.com/wp-content/uploads/2021/02/Trustpilot_border_white.png" alt="" width="200" height="50" style="margin-top: -5px;"></span></a></h4>
+        </div>
+      </div>
+
+      <!-- ./truspilot -->
+
+
 
       <!-- content area -->
       <section class="content-section text-light" style="background: linear-gradient(to bottom, #111931 0%, #0f131e 100%);">
@@ -867,10 +910,38 @@
               </div>
             </div>
             <!-- /.post -->
-          </div>
+          </div> 
         </div>
       </section>
       <!-- /.content area -->
+
+      <!-- how to order  -->
+      <section class="content-section text-light" style="background: linear-gradient(to bottom, #111931 0%, #0f131e 100%);">
+        <div class="container text-center">
+          <h2 class="text-uppercase" style="font-weight: bold;">HOW TO ORDER ON MMOPILOT</h2>
+          <p><img src="https://mmopilot.com/wp-content/uploads/2021/02/How_TO_Order_Baru-1.png" alt=""></p>
+        </div>
+      </section>
+
+      <!-- ./ how to order -->
+
+            <!-- mmopilot is safe website -->
+
+            <section class="content-section text-light" style="background: linear-gradient(to bottom, #111931 0%, #0f131e 100%);">
+        <div class="container">
+          <h2 class="text-uppercase text-center" style="font-weight: bold;">MMOPILOT IS SAFE WEBSITE</h2>
+          <div class="row">
+            <div class="col text-right mt-5">
+              <p><a href="https://transparencyreport.google.com/safe-browsing/search?url=https:%2F%2Fmmopilot.com%2F&hl=en" target="_blank"><img src="https://mmopilot.com/wp-content/uploads/2021/07/safebrowser-from-chrome-1.png" alt="" width="400" height="153"></a></p>
+            </div>
+            <div class="col text-left mt-5">
+              <p><a href="https://www.ssllabs.com/ssltest/analyze.html?d=mmopilot.com" target="_blank"><img src="https://mmopilot.com/wp-content/uploads/2022/01/pilot-removebg-preview.png" alt="" width="400" height="153" style="margin-top: -20px;"></a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ./mmopilot is safe website -->
 
       <!-- banner -->
       <div class="content-section pt-0">
