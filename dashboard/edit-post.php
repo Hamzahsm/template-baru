@@ -20,6 +20,12 @@ if (isset($_POST['submit'])) {
     $tag = $_POST['tag'];
     $image = $_POST['image'];
     $date = date("Y-m-d");
+    foreach($_FILES['uploadgambar']['name'] as $key => $val) {
+        $rand = rand('11111111','99999999');
+        $uploadgambar = $rand. '_'.$val;
+        move_uploaded_file($_FILES['uploadgambar']['tmp_name'][$key],'images/'.$uploadgambar);
+    }
+    $alttext = $_POST['alttext'];
 
     // query start here
     $query = "UPDATE pilot_posts SET 
@@ -29,8 +35,9 @@ if (isset($_POST['submit'])) {
         serp = '$serp',
         category = '$category', 
         tag = '$tag',
-        image = '$image', 
-        date = '$date' WHERE id = '$id'";
+        image = '$uploadgambar', 
+        date = '$date',
+        alttext = '$alttext' WHERE id = '$id'";
 
     // $result = mysqli_query($con, $query)  or die (mysqli_error($con)) ;
 
@@ -130,7 +137,7 @@ if (isset($_POST['submit'])) {
 
                 <!-- main content -->
 
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-8">
                             <label for="" class="form-label fw-bold mt-3">Title</label>
@@ -150,6 +157,13 @@ if (isset($_POST['submit'])) {
 
                             <label for="" class="form-label fw-bold mt-3">Tags</label>
                             <input type="text" id="" name="tag" autocomplete="off" class="form-control" value="<?php echo $result['tag']; ?>">
+
+                            <label for="" class="form-label fw-bold mt-3">Images</label> <br><br>
+                            <img src="./images/<?php echo $result['image'] ?>" alt="" width="320" height="270"> <br><br>
+                            <input type="file" name="uploadgambar[]"> <br><br>
+
+                            <label for="" class="form-label fw-bold mt-3">Alt Text</label>
+                            <input type="text" name="alttext" class="form-control" value="<?php echo $result['alttext']; ?>">
 
                             <div class="form-group mb-4 mt-5 text-center">
                                 <button type="submit" name="submit" class="btn btn-primary">Update</button>

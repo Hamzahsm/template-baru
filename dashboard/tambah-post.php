@@ -8,12 +8,18 @@ if (isset($_POST['publish'])) {
   $deskripsi = $_POST['deskripsi'];
   $category = $_POST['category'];
   $tag = $_POST['tag'];
-  $image = $_POST['image'];
+  // $image = $_POST['image'];
+  foreach($_FILES['uploadgambar']['name'] as $key => $val) {
+    $rand = rand('11111111','99999999');
+    $uploadgambar = $rand. '_'.$val;
+    move_uploaded_file($_FILES['uploadgambar']['tmp_name'][$key],'images/'.$uploadgambar);
+}
   $serp = $_POST['serp'];
   $slug = $_POST['slug'];
   $date = date("Y-m-d");
+  $alttext = $_POST['alttext'];
 
-  $query = "INSERT INTO pilot_posts (title, category, tag, image, deskripsi, serp, slug, date ) VALUES ('$title', '$category', '$tag', '$image',  '$deskripsi', '$serp', '$slug', '$date')";
+  $query = "INSERT INTO pilot_posts (title, category, tag, image, deskripsi, serp, slug, date, alttext ) VALUES ('$title', '$category', '$tag', '$uploadgambar',  '$deskripsi', '$serp', '$slug', '$date', '$alttext')";
 
   $query_run = mysqli_query($con, $query);
 
@@ -140,7 +146,10 @@ if (isset($_POST['publish'])) {
               <input type="text" class="form-control" name="tag">
 
               <h5 class="mt-3">Product Image</h5>
-              <input type="file" name="image"> <br><br>
+              <input type="file" name="uploadgambar[]"> <br><br>
+
+              <h5 class="mt-3">Alt Text</h5>
+              <input type="text" class="form-control" name="alttext">
 
               <button type="submit" class="btn btn-primary mt-3" name="publish">Publish</button>
             </div>

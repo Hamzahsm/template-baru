@@ -187,7 +187,7 @@ if (isset($_GET['cari'])) {
                         <div class="col-lg-4 mb-5 mb-lg-0">
                           <div class="card">
                             <div>
-                              <img src="assets/img/content/img_01.jpg" alt="News">
+                              <img src="./dashboard/images/<?= $data['image']; ?>" alt="<?= $data['alttext'] ?>" width="320" height="270">
                               <div class="badges badges-left badges-top pl-2 pt-1 text-white">
                                 <a class="badge badge-warning text-secondary fw-600" href="#">News</a>
                               </div>
