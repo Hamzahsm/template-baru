@@ -32,7 +32,7 @@ if (isset($_POST['publish'])) {
     document.location.href = 'tambah-post.php';</script>";
     // header("Location: tambah-post.php");
   }
-};
+};  
 
 ?>
 

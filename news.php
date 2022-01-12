@@ -191,12 +191,12 @@ if (isset($_GET['cari'])) {
                               <div class="badges badges-left badges-top pl-2 pt-1 text-white">
                                 <a class="badge badge-warning text-secondary fw-600" href="#">News</a>
                               </div>
-                            </div>
+                            </div>  
                           </div>
                         </div>
                         <div class="col-lg-8">
                           <div class="text-gray">
-                            <h5 class="text-uppercase fw-600"><a href="detail-post.php?id=<?= $data['id']; ?>"><?= $data["title"]; ?></a></h5>
+                            <h5 class="text-uppercase fw-600"><a href="post.php?id=<?= $data['id']; ?>"><?= $data["title"]; ?></a></h5>
                             <div class="small-3 mb-2">
                               <span class="mr-2"><i class="fas fa-calendar-alt mr-1"></i><?= $data['date']; ?></span>
                               <a href="news-article.html" class="comments"><i class="fas fa-comment-alt mr-1"></i> <span>7</span> comments</a>

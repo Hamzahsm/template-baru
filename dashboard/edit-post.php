@@ -168,7 +168,7 @@ if (isset($_POST['submit'])) {
                             <div class="form-group mb-4 mt-5 text-center">
                                 <button type="submit" name="submit" class="btn btn-primary">Update</button>
                             </div>
-                        </div>
+                        </div>  
                     </div>
                 </form>
 

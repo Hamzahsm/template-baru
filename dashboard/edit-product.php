@@ -19,6 +19,12 @@ if (isset($_POST['submit'])) {
     $saleprice = $_POST['saleprice'];
     $category = $_POST['category'];
     $tags = $_POST['tags'];
+    foreach($_FILES['uploadgambar']['name'] as $key => $val) {
+        $rand = rand('11111111','99999999');
+        $uploadgambar = $rand. '_'.$val;
+        move_uploaded_file($_FILES['uploadgambar']['tmp_name'][$key],'image-products/'.$uploadgambar);
+    }
+    $alttext = $_POST['alttext'];
 
     // query start here
     $query = "UPDATE pilot_products SET 
@@ -28,7 +34,9 @@ if (isset($_POST['submit'])) {
         regularprice = '$regularprice',
         saleprice = '$saleprice',
         category = '$category',
-        tags = '$tags' WHERE id = '$id'";
+        tags = '$tags',
+        image = '$uploadgambar',
+        alttext = '$alttext' WHERE id = '$id'";
 
     // $result = mysqli_query($con, $query)  or die (mysqli_error($con)) ;
 
@@ -129,7 +137,7 @@ if (isset($_POST['submit'])) {
 
                 <!-- main content -->
 
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-8">
                             <label for="" class="form-label fw-bold mt-3">Title</label>
@@ -151,7 +159,14 @@ if (isset($_POST['submit'])) {
                             <input type="text" id="" name="category" autocomplete="off" class="form-control" value="<?php echo $result['category']; ?>">
 
                             <label for="" class="form-label fw-bold mt-3">Tags</label>
-                            <input type="text" id="" name="tags" autocomplete="off" class="form-control" value="<?php echo $result['tags']; ?>">
+                            <input type="text" id="" name="tags" autocomplete="off" class="form-control" value="<?php echo $result['tags']; ?>">  
+
+                            <label for="" class="form-label fw-bold mt-3">Images</label> <br><br>
+                            <img src="./image-products/<?php echo $result['image'] ?>" alt="" width="320" height="270"> <br><br>
+                            <input type="file" name="uploadgambar[]"> <br><br>
+
+                            <label for="" class="form-label fw-bold mt-3">Alt Text</label>
+                            <input type="text" name="alttext" class="form-control" value="<?php echo $result['alttext']; ?>">
 
                             <div class="form-group mb-4 mt-5 text-center">
                                 <button type="submit" name="submit" class="btn btn-primary">Update</button>

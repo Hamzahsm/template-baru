@@ -9,12 +9,18 @@ if (isset($_POST['publish'])) {
   $deskripsi = $_POST['deskripsi'];
   $category = $_POST['category'];
   $tag = $_POST['tags'];
-  $regularprice = $_POST['regularprice'] ;
+  $regularprice = $_POST['regularprice'] ; 
   $saleprice = $_POST['saleprice'];
-  $image = $_POST['image'];
+  // $image = $_POST['image'];
+    foreach($_FILES['uploadgambar']['name'] as $key => $val) {
+      $rand = rand('11111111','99999999');
+      $uploadgambar = $rand. '_'.$val;
+      move_uploaded_file($_FILES['uploadgambar']['tmp_name'][$key],'image-products/'.$uploadgambar);
+  }
   $date = date("Y-m-d");
+  $alttext = $_POST['alttext'];
 
-  $query = "INSERT INTO pilot_products (title, category, tags, image, regularprice, saleprice, deskripsi, slug, date ) VALUES ('$title', '$category', '$tag', '$image', '$regularprice', '$saleprice',  '$deskripsi' , '$slug' , '$date')";
+  $query = "INSERT INTO pilot_products (title, category, tags, image, regularprice, saleprice, deskripsi, slug, date, alttext ) VALUES ('$title', '$category', '$tag', '$uploadgambar', '$regularprice', '$saleprice',  '$deskripsi' , '$slug' , '$date', '$alttext')";
 
   $query_run = mysqli_query($con, $query);
 
@@ -28,7 +34,7 @@ if (isset($_POST['publish'])) {
     // header("Location: tambah-post.php");
   }
 };
-
+  
 ?>
 
 <!doctype html>
@@ -152,7 +158,10 @@ if (isset($_POST['publish'])) {
                 <input type="text" class="form-control" name="tags">
 
                 <h5 class="mt-3">Product Image</h5>
-                <input type="file" name="image"> <br><br>
+                <input type="file" name="uploadgambar[]"> <br><br>
+
+                <h5 class="mt-3">Alt Text</h5>
+                <input type="text" name="alttext" class="form-control">
 
                 <button type="submit" class="btn btn-primary mt-3" name="publish">Publish</button>
             </div>

@@ -8,7 +8,7 @@ $query    = mysqli_query($conn, "SELECT * FROM pilot_products WHERE id= $id ");
 $result    = mysqli_fetch_array($query);
 
 ?>
-
+ 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -133,11 +133,11 @@ $result    = mysqli_fetch_array($query);
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb-product breadcrumb-nowrap breadcrumb breadcrumb-angle bg-transparent pl-0 pr-0 mb-0">
                     <li class="breadcrumb-item"><a href="#">All Games</a></li>
-                    <li class="breadcrumb-item"><a href="#">Action Games</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Vestibulum</li>
+                    <li class="breadcrumb-item"><a href="#">MMORPG</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><?php echo $result['category']; ?></li>
                   </ol>
                 </nav>
-                <h3 class="product_name mb-4">Vestibulum varius rutrum cursus</h3>
+                <h3 class="product_name mb-4"><?php echo $result['title']; ?></h3>
                 <div class="d-flex flex-wrap align-items-center">
                   <div class="review d-flex">
                     <div class="review_score">
@@ -152,9 +152,9 @@ $result    = mysqli_fetch_array($query);
                     </div>
                   </div>
                   <ul class="tag-list d-none d-md-flex flex-wrap list-unstyled mb-0">
-                    <li class="tag-item"><a href="" class="badge badge-warning fw-600">Aliquam</a></li>
-                    <li class="tag-item"><a href="" class="badge badge-warning fw-600">Suscipit</a></li>
-                    <li class="tag-item"><a href="" class="text-unset release-date"><i class="far fa-clock text-warning mr-1"></i> OCT 18 2020</a></li>
+                    <li class="tag-item"><a href="" class="badge badge-warning fw-600"><?php echo $result['category']; ?></a></li>
+                    <li class="tag-item"><a href="" class="badge badge-warning fw-600"><?php echo $result['tags'] ?></a></li>
+                    <li class="tag-item"><a href="" class="text-unset release-date"><i class="far fa-clock text-warning mr-1"></i><?php echo $result['date']; ?></a></li>
                   </ul>
                 </div>
               </header>
@@ -166,17 +166,17 @@ $result    = mysqli_fetch_array($query);
                     <!-- carousel wrapper-->
                     <div class="carousel-product">
                       <div class="slider text-secondary" data-slick="product-body">
+                        <img src="./dashboard/image-products/<?php echo $result['image']; ?>" alt="Game" width="1900" height="1080">
+                        <!-- <img src="assets/img/content/product/02.jpg" alt="Game">
                         <img src="assets/img/content/product/01.jpg" alt="Game">
-                        <img src="assets/img/content/product/02.jpg" alt="Game">
-                        <img src="assets/img/content/product/01.jpg" alt="Game">
-                        <img src="assets/img/content/product/01.jpg" alt="Game">
+                        <img src="assets/img/content/product/01.jpg" alt="Game"> -->
                       </div>
-                      <div class="slider product-slider-nav text-secondary">
+                      <!-- <div class="slider product-slider-nav text-secondary">
                         <div class="slide-item px-1"><img src="assets/img/content/product/01.jpg" class="screenshot" alt="Game"></div>
                         <div class="slide-item px-1"><img src="assets/img/content/product/02.jpg" class="screenshot" alt="Game"></div>
                         <div class="slide-item px-1"><img src="assets/img/content/product/01.jpg" class="screenshot" alt="Game"></div>
                         <div class="slide-item px-1"><img src="assets/img/content/product/01.jpg" class="screenshot" alt="Game"></div>
-                      </div>
+                      </div> -->
                     </div>
                     <!-- /.carousel wrapper -->
 
@@ -189,17 +189,17 @@ $result    = mysqli_fetch_array($query);
                       </div>
                     </div>
                     <div id="about" class="about mb-8">
-                      <h6 class="mb-4 fw-400 ls-1 text-uppercase">About this game</h6>
+                      <h6 class="mb-4 fw-400 ls-1 text-uppercase">Deskripsi</h6>
                       <hr class="border-secondary my-2">
                       <div>
                         <div class="collapse readmore" id="collapseSummary">
-                          <p>Sed placerat posuere sem ut luctus. Nunc nec odio luctus, eleifend enim nec, pretium arcu. Nam lobortis metus at ipsum dignissim, in consequat nunc laoreet. Suspendisse malesuada suscipit aliquet. Aliquam sit amet justo nibh. Phasellus tincidunt massa nec vestibulum accumsan. Proin eleifend dapibus tortor eu laoreet. In nunc mauris, elementum a magna id, porttitor sagittis mi. Integer velit quam, feugiat ac faucibus sed, vestibulum et massa. Fusce at lectus dui. Pellentesque pretium, velit non ornare ultrices, turpis metus pellentesque tellus, ac tincidunt risus massa non odio. Nullam posuere dignissim ligula, et dignissim odio porta vitae. Curabitur suscipit ultricies pulvinar. Sed ipsum nibh, dictum sit amet mi at, tempus commodo diam. Phasellus vitae nisi in urna rutrum eleifend et nec massa. Donec at mattis eros, ut pellentesque lectus.</p>
+                          <p><?php echo $result['deskripsi']; ?></p>
                         </div>
                         <a class="readmore-btn collapsed" data-toggle="collapse" href="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary"></a>
                       </div>
                     </div>
                     <div id="system_requirements" class="mb-8">
-                      <h6 class="mb-4 fw-400 ls-1 text-uppercase">System Requirements</h6>
+                      <h6 class="mb-4 fw-400 ls-1 text-uppercase">Requirements</h6>
                       <hr class="border-secondary my-2">
                       <div>
                         <ul class="sreq_nav nav nav-tabs-minimal text-center mb-4" role="tablist">
@@ -457,13 +457,13 @@ $result    = mysqli_fetch_array($query);
             </div>
             <div class="col-lg-4">
               <div class="bg-dark_A-20 p-4 mb-4">
-                <img src="assets/img/content/cont/product_preview.jpg" alt="Product" class="mb-3">
+                <img src="./dashboard/image-products/<?php echo $result['image']; ?>" alt="<?php echo $result['alttext']; ?>" class="mb-3" width="325" height="150">
                 <p>Sed neque nibh, vehicula vel molestie eget, venenatis in odio. Nulla nec metus sagittis, scelerisque leo eu, vestibulum justo. Mauris rhoncus arcu eu sagittis consequat.</p>
                 <div class="price-wrapper">
                   <div class="mb-3">
                     <div class="price">
-                        <div class="price-prev">300$</div>
-                        <div class="price-current">224$</div>
+                        <div class="price-prev"><?php echo $result['regularprice']; ?></div>
+                        <div class="price-current"><?php echo $result['saleprice']; ?></div>
                       </div>
                     <div class="discount">
                         Save: $20.00 (33%)
