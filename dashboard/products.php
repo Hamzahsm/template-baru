@@ -113,6 +113,7 @@ $datas = query("SELECT * FROM pilot_products");
                 <th>Tags</th>
                 <th>Price</th>
                 <th>Date</th>
+                <th>Preview</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -125,6 +126,7 @@ $datas = query("SELECT * FROM pilot_products");
                 <td><?= $data["tags"];?> </td>
                 <td><?= $data["regularprice"];?></td>
                 <td><?= $data["date"];?></td>
+                <td><a href="../product.php?id=<?= $data['id']; ?>">View</a></td>
                 <td><a href="edit-product.php?id=<?= $data['id']; ?>"> <button class="btn btn-success">Edit</button></a> <a href="delete-product.php?id=<?= $data['id']; ?>" onclick="return confirm('Apakah Anda Yakin?')"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             <?php $i++;?>
