@@ -342,7 +342,7 @@ if (isset($_GET['cari'])) {
                               <div class="position-relative">
                                 <span class="item_genre small fw-600"><?= $data["category"]; ?></span>
                               </div>
-                            </div>
+                            </div>  
                             <div class="item_discount d-none d-sm-block">
                               <div class="row align-items-center h-100 no-gutters">
                                 <div class="text-right text-secondary px-6">

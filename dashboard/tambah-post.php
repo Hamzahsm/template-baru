@@ -137,10 +137,17 @@ if (isset($_POST['publish'])) {
             </div>
             <div class="col-4">
               <h5 class="mt-3">Category</h5>
-              <input type="checkbox" class="form-check-input" value="Guide" name="category"> Guide <br>
+              <select name="category" id="" class="form-control">
+                <option value="">--Pilih--</option>
+                <option value="Guide">Guide</option>
+                <option value="Guild Wars 2">Guild Wars 2</option>
+                <option value="Albion Online">Albion Online</option>
+                <option value="New World">New World</option>
+              </select>
+              <!-- <input type="checkbox" class="form-check-input" value="Guide" name="category"> Guide <br>
               <input type="checkbox" class="form-check-input" value="Guild Wars 2" name="category"> Guild Wars 2 <br>
               <input type="checkbox" class="form-check-input" value="Albion Online" name="category"> Albion Online <br>
-              <input type="checkbox" class="form-check-input" value="New World" name="category"> New World <br>
+              <input type="checkbox" class="form-check-input" value="New World" name="category"> New World <br> -->
 
               <h5 class="mt-3">Tags</h5>
               <input type="text" class="form-control" name="tag">

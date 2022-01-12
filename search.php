@@ -171,17 +171,17 @@ if (isset($_GET['cari'])) {
                         <a href="./power-leveling-150.html" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
-                              <img class="img bl-3 text-primary" src="assets/img/content/cont/POWER_LEVELING_1_50_NEW_WORLD_MMOPILOT.png" alt="Games Store">
+                              <img class="img bl-3 text-primary" src="./dashboard/image-products/<?= $data['image']; ?>" alt="<?= $data['alttext'] ?>">
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
-                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1"><?= $data["title"]; ?></h6>
+                              <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1"><a href="product.php?id=<?= $data['id'];?>"><?= $data["title"]; ?></a></h6>
                               <div class="mb-0">
                                 <i class="mr-2 fab fa-windows"></i>
                                 <i class="mr-2 fab fa-steam"></i>
                                 <i class="fab fa-apple"></i>
                               </div>
                               <div class="position-relative">
-                                <span class="item_genre small fw-600"><?= $data["genre"]; ?></span>
+                                <span class="item_genre small fw-600"><?= $data["category"]; ?></span>
                               </div>
                             </div>
                             <div class="item_discount d-none d-sm-block">
@@ -194,8 +194,8 @@ if (isset($_GET['cari'])) {
                             <div class="item_price">
                               <div class="row align-items-center h-100 no-gutters">
                                 <div class="text-right">
-                                  <span class="fw-600 td-lt"><?= $data["harga"]; ?></span><br>
-                                  <span class="fw-600"><?= $data["sale"]; ?></span>
+                                  <span class="fw-600 td-lt"><?= $data["regularprice"]; ?></span><br>
+                                  <span class="fw-600"><?= $data["saleprice"]; ?></span>
                                 </div>
                               </div>
                             </div>

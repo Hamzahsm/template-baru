@@ -156,7 +156,13 @@ if (isset($_POST['submit'])) {
                             <input type="text" id="" name="saleprice" autocomplete="off" class="form-control" value="<?php echo $result['saleprice']; ?>">
 
                             <label for="" class="form-label fw-bold mt-3">Category</label>
-                            <input type="text" id="" name="category" autocomplete="off" class="form-control" value="<?php echo $result['category']; ?>">
+                            <!-- <input type="text" id="" name="category" autocomplete="off" class="form-control" value="<?php echo $result['category']; ?>"> -->
+                            <select name="category" id="" class="form-control">
+                                <option value="<?php echo $result['category']; ?>"><?php echo $result['category']; ?></option>
+                                <option value="Guild Wars 2">Guild Wars 2</option>
+                                <option value="Albion Online">Albion Online</option>
+                                <option value="New World">New World</option>
+                            </select>
 
                             <label for="" class="form-label fw-bold mt-3">Tags</label>
                             <input type="text" id="" name="tags" autocomplete="off" class="form-control" value="<?php echo $result['tags']; ?>">  
