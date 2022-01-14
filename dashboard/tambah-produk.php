@@ -19,8 +19,12 @@ if (isset($_POST['publish'])) {
   }
   $date = date("Y-m-d");
   $alttext = $_POST['alttext'];
+  $shortdescription = $_POST['shortdescription'];
+  $stok = $_POST['stock'];
+  $metadescription = $_POST['metadescription'];
+  $focuskeyword = $_POST['focuskeyword'];
 
-  $query = "INSERT INTO pilot_products (title, category, tags, image, regularprice, saleprice, deskripsi, slug, date, alttext ) VALUES ('$title', '$category', '$tag', '$uploadgambar', '$regularprice', '$saleprice',  '$deskripsi' , '$slug' , '$date', '$alttext')";
+  $query = "INSERT INTO pilot_products (title, category, tags, image, regularprice, saleprice, deskripsi, slug, date, alttext, shortdescription, stock, metadescription, focuskeyword ) VALUES ('$title', '$category', '$tag', '$uploadgambar', '$regularprice', '$saleprice',  '$deskripsi' , '$slug' , '$date', '$alttext', '$shortdescription', '$stok', '$metadescription', '$focuskeyword')";
 
   $query_run = mysqli_query($con, $query);
 
@@ -141,11 +145,27 @@ if (isset($_POST['publish'])) {
                     <h5 class="mt-3">Deskripsi</h5>
                     <textarea name="deskripsi" id="" cols="100" rows="10"></textarea>
 
+                    <h5 class="mt-3">Product Short Description</h5>
+                    <textarea name="shortdescription" id="" cols="100" rows="5" maxlength="150"></textarea>
+
                     <h5 class="mt-3">Regular Price</h5>
                     <input type="text" name="regularprice" autocomplete="off" class="form-control">
 
                     <h5 class="mt-3">Sale Price</h5>
-                    <input type="text" name="saleprice" autocomplete="off" class="form-control mb-5">
+                    <input type="text" name="saleprice" autocomplete="off" class="form-control">
+
+                    <h5 class="mt-3">Stock status</h5>
+                    <select name="stock" id="" class="form-control">
+                      <option value="pilih stock status dulu">--Pilih--</option>
+                      <option value="In Stock">In Stock</option>
+                      <option value="Out Stock">Out Stock</option>
+                    </select>
+
+                    <h5 class="mt-3">Focus Keyword</h5>
+                    <input type="text" name="focuskeyword" autocomplete="off" class="form-control">
+
+                    <h5 class="mt-3">Meta Description</h5>
+                    <textarea name="metadescription" id="" cols="100" rows="5"></textarea>
 
             </div>
             <div class="col-4">
@@ -156,9 +176,6 @@ if (isset($_POST['publish'])) {
                   <option value="Albion Online">Albion Online</option>
                   <option value="New World">New World</option>
                 </select>
-                <!-- <input type="checkbox" class="form-check-input" name="category" value="Guild Wars 2"> Guild Wars 2 <br>
-                <input type="checkbox" class="form-check-input" name="category" value="Albion Online"> Albion Online <br>
-                <input type="checkbox" class="form-check-input" name="category" value="New World"> New World <br> -->
 
                 <h5 class="mt-3">Tags</h5>
                 <input type="text" class="form-control" name="tags">

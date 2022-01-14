@@ -813,7 +813,7 @@
             <!-- truspilot -->
             <div class="content-section text-center ">
         <div class=" text-white">
-          <h4><a href="https://www.trustpilot.com/review/mmopilot.com" target="_blank"><span>See our 219 reviews on </span><span><img src="https://mmopilot.com/wp-content/uploads/2021/02/Trustpilot_border_white.png" alt="" width="200" height="50" style="margin-top: -5px;"></span></a></h4>
+          <h4><a href="https://www.trustpilot.com/review/mmopilot.com" target="_blank"><span>See our reviews on </span><span><img src="https://mmopilot.com/wp-content/uploads/2021/02/Trustpilot_border_white.png" alt="" width="200" height="50" style="margin-top: -5px;"></span></a></h4>
         </div>
       </div>
 

@@ -149,11 +149,21 @@ if (isset($_POST['submit'])) {
                             <label for="" class="form-label fw-bold mt-3">Deskripsi</label>
                             <textarea name="deskripsi" id="" cols="100" rows="18" class="mt-1"><?php echo $result['deskripsi']; ?></textarea> <br><br>
 
+                            <label for="" class="form-label fw-bold mt-3">Product Short Description</label>
+                            <textarea name="shortdescription" id="" cols="100" rows="5"><?php echo $result['shortdescription']; ?></textarea> <br><br>
+
                             <label for="" class="form-label fw-bold mt-3">Regular Price</label>
                             <input type="text" id="" name="regularprice" autocomplete="off" class="form-control" value="<?php echo $result['regularprice']; ?>">
 
                             <label for="" class="form-label fw-bold mt-3">Sale Price</label>
                             <input type="text" id="" name="saleprice" autocomplete="off" class="form-control" value="<?php echo $result['saleprice']; ?>">
+
+                            <label for="" class="form-label fw-bold mt-3">Stock Status</label>
+                            <select name="stock" id="" class="form-control">
+                                <option value=""><?php echo $result['stock']; ?></option>
+                                <option value="In Stock">In Stock</option>
+                                <option value="Out Stock">Out Stock</option>
+                            </select>
 
                             <label for="" class="form-label fw-bold mt-3">Category</label>
                             <!-- <input type="text" id="" name="category" autocomplete="off" class="form-control" value="<?php echo $result['category']; ?>"> -->
@@ -163,6 +173,12 @@ if (isset($_POST['submit'])) {
                                 <option value="Albion Online">Albion Online</option>
                                 <option value="New World">New World</option>
                             </select>
+
+                            <label for="" class="form-label fw-bold mt-3">Focus Keyword</label>
+                            <input type="text" name="focuskeyword" autocomplete="off" class="form-control" value="<?php echo $result['focuskeyword']; ?>">
+
+                            <label for="" class="form-label fw-bold mt-3">Meta Description</label>
+                            <textarea name="metadescription" id="" cols="100" rows="5"><?php echo $result['metadescription']; ?></textarea> <br><br>
 
                             <label for="" class="form-label fw-bold mt-3">Tags</label>
                             <input type="text" id="" name="tags" autocomplete="off" class="form-control" value="<?php echo $result['tags']; ?>">  
