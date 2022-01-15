@@ -1,12 +1,3 @@
-<?php 
-
-require '../function.php';
-$datas = query("SELECT * FROM pilot_products");  
-
-?>
-
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,8 +6,7 @@ $datas = query("SELECT * FROM pilot_products");
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Products - Mmopilot </title>
-
+    <title>Categories - MMOPILOT </title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -73,13 +63,13 @@ $datas = query("SELECT * FROM pilot_products");
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link" href="#">
               <span data-feather="shopping-cart"></span>
               Products
             </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="./categories.php">
+              <a class="nav-link active" href="./categories.php">
                 <span data-feather="file-text"></span>
                 Categories
               </a>
@@ -91,7 +81,7 @@ $datas = query("SELECT * FROM pilot_products");
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">MANAGE YOUR PRODUCTS</h1>
+        <h1 class="h2">MANAGE YOUR CATEGORIES</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -105,40 +95,33 @@ $datas = query("SELECT * FROM pilot_products");
       </div>
 
     <!-- main content -->
-    <a href="./tambah-produk.php"><button class="btn btn-primary">Add New</button></a>
+    <a href="./tambah-category.php"><button class="btn btn-primary">Add New</button></a>
 
-    <h5 class="mt-3">Your Post articles</h5>
+    <h5 class="mt-3">Your categories</h5>
 
     <table class="table table-bordered mt-3">
         <thead>
         <?php $i = 1; ?>
             <tr>
                 <th>No</th>
-                <th >Title</th>
-                <th>Category</th>
-                <th>Tags</th>
-                <th>Price</th>
+                <th>Nama</th>
+                <th>Slug</th>
+                <th>Deskripsi</th>
                 <th>Date</th>
-                <th>Preview</th>
-                <th>Action</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-          <?php foreach($datas as $data) :?>
+
             <tr>
-                <td><?= $i; ?></td>
-                <td><?= $data["title"];?></td>
-                <td><?= $data["category"];?></td>
-                <td><?= $data["tags"];?> </td>
-                <td><div class="text-decoration-line-through"><?= $data['regularprice']; ?></div>
-                    <div class="price-current"><?= $data['saleprice']; ?></div>
-                </td>
-                <td><?= $data["date"];?></td>
-                <td><a href="../product.php?id=<?= $data['id']; ?>">View</a></td>
-                <td><a href="edit-product.php?id=<?= $data['id']; ?>"> <button class="btn btn-success">Edit</button></a> <a href="delete-product.php?id=<?= $data['id']; ?>" onclick="return confirm('Apakah Anda Yakin?')"><button class="btn btn-danger">Delete</button></a></td>
+                <td></td>
+                <td></td>
+                <td> </td>
+                <td></td>
+                <td></td>
+                <td><a href=""> <button class="btn btn-success">Edit</button></a> <a href="" onclick="return confirm('Apakah Anda Yakin?')"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
-            <?php $i++;?>
-          <?php endforeach; ?>  
+
             <!-- <tr>
                 <td>2</td>
                 <td>Product 2</td>

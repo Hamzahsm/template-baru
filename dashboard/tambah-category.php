@@ -1,12 +1,37 @@
 <?php
 
-require '../function.php';
-$datas = query("SELECT * FROM pilot_posts");
+// $con = mysqli_connect("localhost", "u705028021_templatepilot", "templatepilot123NEW", "u705028021_templatepilot");
 
-?>
+// if (isset($_POST['publish'])) {
+//   global $con;
+//   $title = $_POST['title'];
+//   $deskripsi = $_POST['deskripsi'];
+//   $category = $_POST['category'];
+//   $tag = $_POST['tag'];
+//   foreach($_FILES['uploadgambar']['name'] as $key => $val) {
+//     $rand = rand('11111111','99999999');
+//     $uploadgambar = $rand. '_'.$val;
+//     move_uploaded_file($_FILES['uploadgambar']['tmp_name'][$key],'images/'.$uploadgambar);
+// }
+//   $serp = $_POST['serp'];
+//   $slug = $_POST['slug'];
+//   $date = date("Y-m-d");
+//   $alttext = $_POST['alttext'];
 
+//   $query = "INSERT INTO pilot_posts (title, category, tag, image, deskripsi, serp, slug, date, alttext ) VALUES ('$title', '$category', '$tag', '$uploadgambar',  '$deskripsi', '$serp', '$slug', '$date', '$alttext')";
 
+//   $query_run = mysqli_query($con, $query);
 
+//   if ($query_run) {
+//     echo "<script>alert('Post Berhasil Ditambahkan! ');
+//     document.location.href = 'index.php';</script>";
+//   } else {
+//     echo "<script>alert('Oops, Post gagal ditambahkan!');
+//     document.location.href = 'tambah-post.php';</script>";
+//   }
+// };  
+
+?> 
 
 <!doctype html>
 <html lang="en">
@@ -17,7 +42,7 @@ $datas = query("SELECT * FROM pilot_posts");
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.88.1">
-  <title>Posts - Mmopilot </title>
+  <title>Tambah Category - Mmopilot </title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -70,110 +95,69 @@ $datas = query("SELECT * FROM pilot_posts");
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="./index.php">
+              <a class="nav-link" href="./index.php">
                 <span data-feather="file-plus"></span>
                 Post
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./products.php">
+              <a class="nav-link " href="./products.php">
                 <span data-feather="shopping-cart"></span>
                 Products
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./categories.php">
+              <a class="nav-link active" href="./categories.php">
                 <span data-feather="file-text"></span>
                 Categories
               </a>
             </li>
 
           </ul>
-
-          <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>Saved reports</span>
-          <a class="link-secondary" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Year-end sale
-            </a>
-          </li>
-        </ul> -->
         </div>
       </nav>
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">MANAGE YOUR POST</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-            </div>
-            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-              <span data-feather="calendar"></span>
-              This week
-            </button>
-          </div>
+          <h1 class="h2">TAMBAH CATEGORY BARU</h1>
         </div>
 
         <!-- main content -->
-        <a href="./tambah-post.php"><button class="btn btn-primary">Add New</button></a>
+        <form action="tambah-post.php" method="POST" enctype="multipart/form-data">
+          <div class="row">
+            <div class="col-8 mb-5">
+              <h5>Nama</h5>
+              <input type="text" name="title" autocomplete="off" class="form-control">
 
-        <h5 class="mt-3">Your Products</h5>
+              <h5 class="mt-3">Slug</h5>
+              <input type="text" name="slug" autocomplete="off" class="form-control" >
 
-        <table class="table table-bordered mt-3">
-          <thead>
-            <?php $i = 1; ?>
-            <tr>
-              <th>No</th>
-              <th>Title</th>
-              <th>Categories</th>
-              <th>Tags</th>
-              <th>Date</th>
-              <th>Preview</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($datas as $data) : ?>
-              <tr>
-                <td><?= $i; ?></td>
-                <td><?= $data["title"]; ?></td>
-                <td><?= $data["category"]; ?></td>
-                <td><?= $data["tag"]; ?></td>
-                <td><?= $data["date"]; ?></td>
-                <td><a href="../post.php?id=<?= $data['id']; ?>">View</a></td>
-                <td><a href="edit-post.php?id=<?= $data['id']; ?>"> <button class="btn btn-success">Edit</button></a> <a href="delete-post.php?id=<?= $data['id']; ?>" onclick="return confirm('Apakah Anda Yakin?')"><button class="btn btn-danger">Delete</button></a></td>
-              </tr>
-              <?php $i++; ?>
-            <?php endforeach; ?> 
-          </tbody>
-        </table>
+              <h5>Parent Category</h5>
+              <select name="stock" id="" class="form-control">
+                <option value="pilih stock status dulu">--Pilih--</option>
+                <option value="In Stock">Albion Online</option>
+                <option value="Out Stock">Guild Wars 2</option>
+                <option value="New World">New World</option>
+              </select>
+
+              <h5 class="mt-3">Deskripsi</h5>
+              <textarea name="deskripsi" id="" cols="100" rows="18"></textarea>
+
+              <h5 class="mt-3">Meta Description</h5>
+              <textarea name="metadescription" id="" cols="100" rows="5"></textarea>
+
+              <h5 class="mt-3">Focus Keyword</h5>
+              <input type="text" name="focuskeyword" class="form-control">
+
+              <button type="submit" class="btn btn-primary mt-3" name="publish">Publish</button>
+            </div>
+            <div class="col-4">
+
+            </div>
+          </div>
+        </form>
         <!-- end main content -->
+
 
       </main>
     </div>
