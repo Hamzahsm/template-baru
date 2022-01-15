@@ -15,6 +15,7 @@ $result    = mysqli_fetch_array($query);
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="<?php echo $result['focuskeyword']; ?>">
     <title>Product - MMOPILOT</title>
 
     <!-- CSS -->
@@ -167,16 +168,7 @@ $result    = mysqli_fetch_array($query);
                     <div class="carousel-product">
                       <div class="slider text-secondary" data-slick="product-body">
                         <img src="./dashboard/image-products/<?php echo $result['image']; ?>" alt="Game" width="1900" height="1080">
-                        <!-- <img src="assets/img/content/product/02.jpg" alt="Game">
-                        <img src="assets/img/content/product/01.jpg" alt="Game">
-                        <img src="assets/img/content/product/01.jpg" alt="Game"> -->
                       </div>
-                      <!-- <div class="slider product-slider-nav text-secondary">
-                        <div class="slide-item px-1"><img src="assets/img/content/product/01.jpg" class="screenshot" alt="Game"></div>
-                        <div class="slide-item px-1"><img src="assets/img/content/product/02.jpg" class="screenshot" alt="Game"></div>
-                        <div class="slide-item px-1"><img src="assets/img/content/product/01.jpg" class="screenshot" alt="Game"></div>
-                        <div class="slide-item px-1"><img src="assets/img/content/product/01.jpg" class="screenshot" alt="Game"></div>
-                      </div> -->
                     </div>
                     <!-- /.carousel wrapper -->
 
@@ -198,6 +190,8 @@ $result    = mysqli_fetch_array($query);
                         <a class="readmore-btn collapsed" data-toggle="collapse" href="#collapseSummary" aria-expanded="false" aria-controls="collapseSummary"></a>
                       </div>
                     </div>
+
+                    <!-- system requirements -->
                     <div id="system_requirements" class="mb-8">
                       <h6 class="mb-4 fw-400 ls-1 text-uppercase">Requirements</h6>
                       <hr class="border-secondary my-2">
@@ -380,17 +374,19 @@ $result    = mysqli_fetch_array($query);
                         </div>
                       </div>
                     </div>
-                    <div class="mb-6">
+
+
+                    <!-- <div class="mb-6">
                       <h6 class="mb-0 fw-400 ls-1 text-uppercase">More like this</h6>
                       <hr class="border-secondary my-2">
                       <div>
                         <div class="owl-carousel carousel_sm" data-carousel-items="1, 2, 3, 3" data-carousel-margin="10" data-carousel-nav="false" data-carousel-dots="true">
                           <div class="item">
                             <a href="#">
-                              <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(assets/img/content/cont/cg-c_02.jpg);">
+                              <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(assets/img/content/satu.png);">
                                 <div class="position-absolute w-100 l-0 b-0 bg-dark_A-80 text-light">
                                   <div class="px-4 py-3 lh-1">
-                                    <h6 class="mb-1 small-1 text-light text-uppercase">Phasellus</h6>
+                                    <h6 class="mb-1 small-1 text-light text-uppercase">satu</h6>
                                     <div class="price d-flex flex-wrap align-items-center">
                                       <span class="discount_final text-warning small-2">€99.99</span>
                                     </div>
@@ -401,12 +397,12 @@ $result    = mysqli_fetch_array($query);
                           </div>
                           <div class="item">
                             <a href="#">
-                              <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(assets/img/content/cont/cg-c_02.jpg);">
+                              <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(assets/img/content/cont/satu.png);">
                                 <div class="position-absolute w-100 l-0 b-0 bg-dark_A-80 text-light">
                                   <div class="px-4 py-3 lh-1">
-                                    <h6 class="mb-1 small-1 text-light text-uppercase">Phasellus</h6>
+                                    <h6 class="mb-1 small-1 text-light text-uppercase">Dua</h6>
                                     <div class="price d-flex flex-wrap align-items-center">
-                                      <span class="discount_final text-warning small-2">€99.99</span>
+                                      <span class="discount_final text-warning small-2">€70.99</span>
                                     </div>
                                   </div>
                                 </div>
@@ -415,12 +411,12 @@ $result    = mysqli_fetch_array($query);
                           </div>
                           <div class="item">
                             <a href="#">
-                              <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(assets/img/content/cont/cg-c_02.jpg);">
+                              <div class="d-flex h-100 bs-c br-n bp-c ar-8_5 position-relative" style="background-image: url(assets/img/content/cont/satu.jpg);">
                                 <div class="position-absolute w-100 l-0 b-0 bg-dark_A-80 text-light">
                                   <div class="px-4 py-3 lh-1">
-                                    <h6 class="mb-1 small-1 text-light text-uppercase">Phasellus</h6>
+                                    <h6 class="mb-1 small-1 text-light text-uppercase">Tiga</h6>
                                     <div class="price d-flex flex-wrap align-items-center">
-                                      <span class="discount_final text-warning small-2">€99.99</span>
+                                      <span class="discount_final text-warning small-2">€50.99</span>
                                     </div>
                                   </div>
                                 </div>
@@ -443,7 +439,7 @@ $result    = mysqli_fetch_array($query);
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="mb-0">
                       <div>
                         <div>
@@ -458,7 +454,8 @@ $result    = mysqli_fetch_array($query);
             <div class="col-lg-4">
               <div class="bg-dark_A-20 p-4 mb-4">
                 <img src="./dashboard/image-products/<?php echo $result['image']; ?>" alt="<?php echo $result['alttext']; ?>" class="mb-3" width="325" height="150">
-                <p>Sed neque nibh, vehicula vel molestie eget, venenatis in odio. Nulla nec metus sagittis, scelerisque leo eu, vestibulum justo. Mauris rhoncus arcu eu sagittis consequat.</p>
+                <!-- <p>Sed neque nibh, vehicula vel molestie eget, venenatis in odio. Nulla nec metus sagittis, scelerisque leo eu, vestibulum justo. Mauris rhoncus arcu eu sagittis consequat.</p> -->
+                <p><?php echo $result['shortdescription']; ?></p>
                 <div class="price-wrapper">
                   <div class="mb-3">
                     <div class="price">

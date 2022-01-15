@@ -25,6 +25,10 @@ if (isset($_POST['submit'])) {
         move_uploaded_file($_FILES['uploadgambar']['tmp_name'][$key],'image-products/'.$uploadgambar);
     }
     $alttext = $_POST['alttext'];
+    $shortdescription = $_POST['shortdescription'];
+    $stok = $_POST['stock'];
+    $metadescription = $_POST['metadescription'];
+    $focuskeyword = $_POST['focuskeyword'];
 
     // query start here
     $query = "UPDATE pilot_products SET 
@@ -36,7 +40,11 @@ if (isset($_POST['submit'])) {
         category = '$category',
         tags = '$tags',
         image = '$uploadgambar',
-        alttext = '$alttext' WHERE id = '$id'";
+        alttext = '$alttext',
+        shortdescription = '$shortdescription',
+        stock = '$stok',
+        metadescription = '$metadescription',
+        focuskeyword = '$focuskeyword' WHERE id = '$id'";
 
     // $result = mysqli_query($con, $query)  or die (mysqli_error($con)) ;
 

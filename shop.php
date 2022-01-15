@@ -327,13 +327,14 @@ if (isset($_GET['cari'])) {
                       <!-- item -->
                       <?php foreach ($datas as $data) : ?>
                       <div class="col-md-12 mb-4">
-                        <a href="./power-leveling-150.html" class="product-item">
+                        <a href="product.php?id=<?= $data['id']; ?>" class="product-item">
                           <div class="row align-items-center no-gutters">
                             <div class="item_img d-none d-sm-block">
                               <img class="img bl-3 text-primary" src="./dashboard/image-products/<?= $data['image']; ?>" alt="<?= $data['alttext'] ?>" >
                             </div>
                             <div class="item_content flex-1 flex-grow pl-0 pl-sm-6 pr-6">
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1"><a href="product.php?id=<?= $data['id']; ?>"> <?= $data["title"]; ?></a></h6>
+                              <p><a href="product.php?id=<?= $data['id']; ?>"><?= $data['shortdescription']; ?></a></p>
                               <div class="mb-0">
                                 <i class="mr-2 fab fa-windows"></i>
                                 <i class="mr-2 fab fa-steam"></i>
@@ -343,7 +344,7 @@ if (isset($_GET['cari'])) {
                                 <span class="item_genre small fw-600"><?= $data["category"]; ?></span>
                               </div>
                             </div>  
-                            <div class="item_discount d-none d-sm-block">
+                            <div class="item_discount d-none d-sm-block"> 
                               <div class="row align-items-center h-100 no-gutters">
                                 <div class="text-right text-secondary px-6">
                                   <span class="fw-600 btn bg-warning">-50%</span>
