@@ -134,7 +134,7 @@ $datas = query("SELECT * FROM pilot_products");
                     <div class="price-current"><?= $data['saleprice']; ?></div>
                 </td>
                 <td><?= $data["date"];?></td>
-                <td><a href="../product.php?id=<?= $data['id']; ?>">View</a></td>
+                <td><a href="../product.php?id=<?= $data['id']; ?>" target="_blank">View</a></td>
                 <td><a href="edit-product.php?id=<?= $data['id']; ?>"> <button class="btn btn-success">Edit</button></a> <a href="delete-product.php?id=<?= $data['id']; ?>" onclick="return confirm('Apakah Anda Yakin?')"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             <?php $i++;?>
