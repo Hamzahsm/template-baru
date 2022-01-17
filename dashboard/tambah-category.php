@@ -1,35 +1,30 @@
 <?php
 
-// $con = mysqli_connect("localhost", "u705028021_templatepilot", "templatepilot123NEW", "u705028021_templatepilot");
+$con = mysqli_connect("localhost", "u705028021_templatepilot", "templatepilot123NEW", "u705028021_templatepilot");
 
-// if (isset($_POST['publish'])) {
-//   global $con;
-//   $title = $_POST['title'];
-//   $deskripsi = $_POST['deskripsi'];
-//   $category = $_POST['category'];
-//   $tag = $_POST['tag'];
-//   foreach($_FILES['uploadgambar']['name'] as $key => $val) {
-//     $rand = rand('11111111','99999999');
-//     $uploadgambar = $rand. '_'.$val;
-//     move_uploaded_file($_FILES['uploadgambar']['tmp_name'][$key],'images/'.$uploadgambar);
-// }
-//   $serp = $_POST['serp'];
-//   $slug = $_POST['slug'];
-//   $date = date("Y-m-d");
-//   $alttext = $_POST['alttext'];
+if (isset($_POST['publish'])) {
+  global $con;
+  $nama = $_POST['nama'];
+  $slug = $_POST['slug'];
+  $category = $_POST['category'];
+  $parentcategory = $_POST['parentcategory'];
+  $deskripsi = $_POST['deskripsi'];
+  $metadescription = $_POST['metadescription'];
+  $focuskeyword = $_POST['focuskeyword'];
+  $date = date("Y-m-d");
 
-//   $query = "INSERT INTO pilot_posts (title, category, tag, image, deskripsi, serp, slug, date, alttext ) VALUES ('$title', '$category', '$tag', '$uploadgambar',  '$deskripsi', '$serp', '$slug', '$date', '$alttext')";
+  $query = "INSERT INTO pilot_categories (nama, slug, category, parentcategory, deskripsi, metadescription, focuskeyword, date ) VALUES ('$nama', '$slug', '$category', '$parentcategory',  '$deskripsi', '$metadescription', '$focuskeyword', '$date')";
 
-//   $query_run = mysqli_query($con, $query);
+  $query_run = mysqli_query($con, $query);
 
-//   if ($query_run) {
-//     echo "<script>alert('Post Berhasil Ditambahkan! ');
-//     document.location.href = 'index.php';</script>";
-//   } else {
-//     echo "<script>alert('Oops, Post gagal ditambahkan!');
-//     document.location.href = 'tambah-post.php';</script>";
-//   }
-// };  
+  if ($query_run) {
+    echo "<script>alert('Category Berhasil Ditambahkan! ');
+    document.location.href = 'categories.php';</script>";
+  } else {
+    echo "<script>alert('Oops, Category gagal ditambahkan!');
+    document.location.href = 'tambah-category.php';</script>";
+  }
+};  
 
 ?> 
 
@@ -123,22 +118,29 @@
         </div>
 
         <!-- main content -->
-        <form action="tambah-post.php" method="POST" enctype="multipart/form-data">
+        <form action="tambah-category.php" method="POST" enctype="multipart/form-data">
           <div class="row">
             <div class="col-8 mb-5">
               <h5>Nama</h5>
-              <input type="text" name="title" autocomplete="off" class="form-control">
+              <input type="text" name="nama" autocomplete="off" class="form-control">
 
               <h5 class="mt-3">Slug</h5>
               <input type="text" name="slug" autocomplete="off" class="form-control" >
 
-              <h5>Parent Category</h5>
-              <select name="stock" id="" class="form-control">
-                <option value="pilih stock status dulu">--Pilih--</option>
-                <option value="In Stock">Albion Online</option>
-                <option value="Out Stock">Guild Wars 2</option>
+              <h5 class="mt-3">Category</h5>
+              <select name="category" id="" class="form-control">
+                <option value="Category belum dipilih">--Pilih--</option>
+                <option value="Albion Online">Albion Online</option>
+                <option value="Guild Wars 2">Guild Wars 2</option>
                 <option value="New World">New World</option>
               </select>
+
+              <h5 class="mt-3">Parent Category</h5>
+              <input type="radio" class="form-check-input" value="Yes" name="parentcategory"> 
+              <label for="">Yes</label>
+              
+              <input type="radio" class="form-check-input" value="No" name="parentcategory">
+              <label for="">No</label>
 
               <h5 class="mt-3">Deskripsi</h5>
               <textarea name="deskripsi" id="" cols="100" rows="18"></textarea>

@@ -1,3 +1,15 @@
+<?php 
+
+require '../function.php';
+$datas = query("SELECT * FROM pilot_categories");  
+
+?>
+
+
+
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -83,14 +95,14 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">MANAGE YOUR CATEGORIES</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
+          <!-- <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+          </div> -->
+          <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
             This week
-          </button>
+          </button> -->
         </div>
       </div>
 
@@ -112,24 +124,17 @@
             </tr>
         </thead>
         <tbody>
-
+          <?php foreach($datas as $data) : ?>
             <tr>
-                <td></td>
-                <td></td>
-                <td> </td>
-                <td></td>
-                <td></td>
-                <td><a href=""> <button class="btn btn-success">Edit</button></a> <a href="" onclick="return confirm('Apakah Anda Yakin?')"><button class="btn btn-danger">Delete</button></a></td>
+                <td><?= $i; ?></td>
+                <td><?= $data['nama'];?></td>
+                <td><?= $data['slug']; ?> </td>
+                <td><?= $data['deskripsi'] ?></td>
+                <td><?= $data['date']; ?></td>
+                <td><a href="edit-category.php?id=<?= $data['id'] ?>" target="_blank"> <button class="btn btn-success">Edit</button></a> <a href="delete-category.php?id=<?= $data['id']; ?>" target="_blank" onclick="return confirm('Apakah Anda Yakin?')"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
-
-            <!-- <tr>
-                <td>2</td>
-                <td>Product 2</td>
-                <td>New World</td>
-                <td>#newworld #mmorpg</td>
-                <td>$48</td>
-                <td><button class="btn btn-success">Edit</button> <button class="btn btn-danger">Delete</button></td>
-            </tr> -->
+            <?php $i++ ;?>
+          <?php endforeach; ?>
         </tbody>
     </table>
     <!-- end main content -->
