@@ -29,6 +29,7 @@ if (isset($_POST['submit'])) {
     $stok = $_POST['stock'];
     $metadescription = $_POST['metadescription'];
     $focuskeyword = $_POST['focuskeyword'];
+    $parentcategory = $_POST['parentcategory'];
 
     // query start here
     $query = "UPDATE pilot_products SET 
@@ -44,7 +45,8 @@ if (isset($_POST['submit'])) {
         shortdescription = '$shortdescription',
         stock = '$stok',
         metadescription = '$metadescription',
-        focuskeyword = '$focuskeyword' WHERE id = '$id'";
+        focuskeyword = '$focuskeyword',
+        parentcategory = '$parentcategory' WHERE id = '$id'";
 
     // $result = mysqli_query($con, $query)  or die (mysqli_error($con)) ;
 
@@ -173,8 +175,15 @@ if (isset($_POST['submit'])) {
                                 <option value="Out Stock">Out Stock</option>
                             </select>
 
+                            <label for="" class="form-label fw-bold mt-3">Parent Category</label>
+                            <select name="parentcategory" id="" class="form-control">
+                                <option value="<?php echo $result['parentcategory']; ?>"><?php echo $result['parentcategory']; ?></option>
+                                <option value="GW.png">Guild Wars 2</option>
+                                <option value="albion.png">Albion Online</option>
+                                <option value="NW.png">New World</option>
+                            </select>
+
                             <label for="" class="form-label fw-bold mt-3">Category</label>
-                            <!-- <input type="text" id="" name="category" autocomplete="off" class="form-control" value="<?php echo $result['category']; ?>"> -->
                             <select name="category" id="" class="form-control">
                                 <option value="<?php echo $result['category']; ?>"><?php echo $result['category']; ?></option>
                                 <option value="Guild Wars 2">Guild Wars 2</option>

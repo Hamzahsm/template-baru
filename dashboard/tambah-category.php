@@ -19,7 +19,7 @@ if (isset($_POST['publish'])) {
 
   if ($query_run) {
     echo "<script>alert('Category Berhasil Ditambahkan! ');
-    document.location.href = 'categories.php';</script>";
+    document.location.href = 'categories.php';</script>";  
   } else {
     echo "<script>alert('Oops, Category gagal ditambahkan!');
     document.location.href = 'tambah-category.php';</script>";

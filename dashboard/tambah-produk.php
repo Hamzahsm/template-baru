@@ -23,10 +23,11 @@ if (isset($_POST['publish'])) {
   $stok = $_POST['stock'];
   $metadescription = $_POST['metadescription'];
   $focuskeyword = $_POST['focuskeyword'];
+  $parentcategory = $_POST['parentcategory'];
 
-  $query = "INSERT INTO pilot_products (title, category, tags, image, regularprice, saleprice, deskripsi, slug, date, alttext, shortdescription, stock, metadescription, focuskeyword ) VALUES ('$title', '$category', '$tag', '$uploadgambar', '$regularprice', '$saleprice',  '$deskripsi' , '$slug' , '$date', '$alttext', '$shortdescription', '$stok', '$metadescription', '$focuskeyword')";
+  $query = "INSERT INTO pilot_products (title, category, tags, image, regularprice, saleprice, deskripsi, slug, date, alttext, shortdescription, stock, metadescription, focuskeyword, parentcategory ) VALUES ('$title', '$category', '$tag', '$uploadgambar', '$regularprice', '$saleprice',  '$deskripsi' , '$slug' , '$date', '$alttext', '$shortdescription', '$stok', '$metadescription', '$focuskeyword', '$parentcategory')";
 
-  $query_run = mysqli_query($con, $query);
+  $query_run = mysqli_query($con, $query);  
 
   if ($query_run) {
     echo "<script>alert('Produk berhasil ditambahkan!');
@@ -169,6 +170,14 @@ if (isset($_POST['publish'])) {
 
             </div>
             <div class="col-4">
+                <h5 class="mt-3">Parent Category</h5>
+                <select name="parentcategory" id="" class="form-control">
+                  <option value="">--Pilih--</option>
+                  <option value="GW.png">Guild Wars 2</option>
+                  <option value="albion.png">Albion Online</option>
+                  <option value="NW.png">New World</option>
+                </select>
+
                 <h5 class="mt-3">Category</h5>
                 <select name="category" id="" class="form-control">
                   <option value="">--Pilih--</option>

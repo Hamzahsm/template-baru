@@ -1,3 +1,11 @@
+<?php
+if(isset($_POST['login'])){
+  echo"<script> document.location.href = './dashboard';</script>";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,7 +75,7 @@
               </form>
           </div>
           <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-4 ml-auto text-right">
-            <a class="btn btn-sm btn-warning text-secondary mr-2" href="./login" >Sign in</a>
+            <a class="btn btn-sm btn-warning text-secondary mr-2" href="#" data-toggle="modal" data-target="#userLogin">Sign in</a>
             <a class="btn btn-sm text-light d-none d-sm-inline-block" href="#">Sign up</a>
             <ul class="nav navbar-nav d-none d-sm-inline-flex flex-row">
               <li class="nav-item dropdown">
@@ -1051,7 +1059,7 @@
               </div>
               <span class="hr-text small my-6">Or</span>
             </div>
-            <form class="input-transparent">
+            <form class="input-transparent" action="" method="POST">
               <div class="form-group">
                 <input type="text" class="form-control border-secondary" name="username" placeholder="Username">
               </div>
@@ -1066,7 +1074,7 @@
                 <a class="small-3" href="#">Forgot password?</a>
               </div>
               <div class="form-group mt-6">
-                <button class="btn btn-block btn-warning" type="submit">Login</button>
+                <button class="btn btn-block btn-warning" type="submit" name="login">Login</button>
               </div>
             </form>
             <span class="small">Don't have an account? <a href="#">Create an account</a></span>
