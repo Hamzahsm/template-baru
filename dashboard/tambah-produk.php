@@ -113,6 +113,12 @@ if (isset($_POST['publish'])) {
               Products
             </a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="./categories.php">
+                <span data-feather="file-text"></span>
+                Categories
+              </a>
+            </li>
 
         </ul>
       </div>

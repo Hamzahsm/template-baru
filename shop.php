@@ -6,6 +6,11 @@ $datas = query("SELECT * FROM pilot_products");
 if (isset($_GET['cari'])) {
   $datas = cari($_GET['keyword']);
 };
+
+
+if(isset($_POST['login'])){
+  echo"<script> document.location.href = './dashboard';</script>";
+}
 ?>
 
 
@@ -339,7 +344,7 @@ if (isset($_GET['cari'])) {
                                 <!-- <img src="./images/albion.png" alt="" class="mr-2" width="50" height="50">
                                 <img src="https://mmopilot.com/wp-content/uploads/2022/01/gw-dua.png" alt="" class="mr-2" width="50" height="50">
                                 <img src="https://mmopilot.com/wp-content/uploads/2022/01/new-world.png" alt="" class="mr-2" width="100" height="100"> -->
-                                <span><img src="./images/<?= $data['parentcategory']; ?>" alt="<?= $data['alttext'] ?>" alt="" class="img bl-3 text-primary"></span>
+                                <span><img src="./images/<?= $data['parentcategory']; ?>" alt="<?= $data['alttext'] ?>" alt="" class="img bl-3 text-primary" width="50" height="50"></span>
                               </div>    
                               <div class="position-relative">
                                 <span class="item_genre small fw-600"><?= $data["category"]; ?></span>
@@ -1002,7 +1007,7 @@ if (isset($_GET['cari'])) {
               </div>
               <span class="hr-text small my-6">Or</span>
             </div>
-            <form class="input-transparent">
+            <form class="input-transparent" action="" method="POST">
               <div class="form-group">
                 <input type="text" class="form-control border-secondary" name="username" placeholder="Username">
               </div>
@@ -1017,8 +1022,8 @@ if (isset($_GET['cari'])) {
                 <a class="small-3" href="#">Forgot password?</a>
               </div>
               <div class="form-group mt-6">
-                <button class="btn btn-block btn-warning" type="submit">Login</button>
-              </div>
+                <button class="btn btn-block btn-warning" type="submit" name="login">Login</button>
+              </div>  
             </form>
             <span class="small">Don't have an account? <a href="#">Create an account</a></span>
           </div>

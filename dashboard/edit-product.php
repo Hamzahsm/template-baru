@@ -135,6 +135,12 @@ if (isset($_POST['submit'])) {
                                 Products
                             </a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="./categories.php">
+                            <span data-feather="file-text"></span>
+                            Categories
+                        </a>
+                        </li>
 
                     </ul>
                 </div>
