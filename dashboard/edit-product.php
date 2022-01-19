@@ -184,17 +184,17 @@ if (isset($_POST['submit'])) {
                             <label for="" class="form-label fw-bold mt-3">Parent Category</label>
                             <select name="parentcategory" id="" class="form-control">
                                 <option value="<?php echo $result['parentcategory']; ?>"><?php echo $result['parentcategory']; ?></option>
-                                <option value="GW.png">Guild Wars 2</option>
-                                <option value="albion.png">Albion Online</option>
-                                <option value="NW.png">New World</option>
-                            </select>
-
-                            <label for="" class="form-label fw-bold mt-3">Category</label>
-                            <select name="category" id="" class="form-control">
-                                <option value="<?php echo $result['category']; ?>"><?php echo $result['category']; ?></option>
                                 <option value="Guild Wars 2">Guild Wars 2</option>
                                 <option value="Albion Online">Albion Online</option>
                                 <option value="New World">New World</option>
+                            </select>
+                            <!-- kita hilangkan parent category -->
+                            <label for="" class="form-label fw-bold mt-3">Category</label>
+                            <select name="category" id="" class="form-control">
+                                <option value="<?php echo $result['category']; ?>"><?php echo $result['category']; ?></option>
+                                <option value="GW.png">Guild Wars 2</option>
+                                <option value="albion.png">Albion Online</option>
+                                <option value="NW.png">New World</option>
                             </select>
 
                             <label for="" class="form-label fw-bold mt-3">Focus Keyword</label>

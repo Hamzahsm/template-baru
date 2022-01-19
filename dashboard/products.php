@@ -128,7 +128,7 @@ $datas = query("SELECT * FROM pilot_products");
             <tr>
                 <td><?= $i; ?></td>
                 <td><?= $data["title"];?></td>
-                <td><?= $data["category"];?></td>
+                <td><?= $data["parentcategory"];?></td>
                 <td><?= $data["tags"];?> </td>
                 <td><div class="text-decoration-line-through"><?= $data['regularprice']; ?></div>
                     <div class="price-current"><?= $data['saleprice']; ?></div>

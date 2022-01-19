@@ -179,17 +179,17 @@ if (isset($_POST['publish'])) {
                 <h5 class="mt-3">Parent Category</h5>
                 <select name="parentcategory" id="" class="form-control">
                   <option value="">--Pilih--</option>
-                  <option value="GW.png">Guild Wars 2</option>
-                  <option value="albion.png">Albion Online</option>
-                  <option value="NW.png">New World</option>
+                  <option value="Guild Wars 2">Guild Wars 2</option>
+                  <option value="Albion Online">Albion Online</option>
+                  <option value="New World">New World</option>
                 </select>
 
                 <h5 class="mt-3">Category</h5>
                 <select name="category" id="" class="form-control">
                   <option value="">--Pilih--</option>
-                  <option value="Guild Wars 2">Guild Wars 2</option>
-                  <option value="Albion Online">Albion Online</option>
-                  <option value="New World">New World</option>
+                  <option value="GW.png">Guild Wars 2</option>
+                  <option value="albion.png">Albion Online</option>
+                  <option value="NW.png">New World</option>
                 </select>
 
                 <h5 class="mt-3">Tags</h5>

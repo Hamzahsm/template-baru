@@ -341,13 +341,11 @@ if(isset($_POST['login'])){
                               <h6 class="item_title ls-1 small-1 fw-600 text-uppercase mb-1"><a href="product.php?id=<?= $data['id']; ?>"> <?= $data["title"]; ?></a></h6>
                               <p><a href="product.php?id=<?= $data['id']; ?>"><?= $data['shortdescription']; ?></a></p>
                               <div class="mb-0">
-                                <!-- <img src="./images/albion.png" alt="" class="mr-2" width="50" height="50">
-                                <img src="https://mmopilot.com/wp-content/uploads/2022/01/gw-dua.png" alt="" class="mr-2" width="50" height="50">
-                                <img src="https://mmopilot.com/wp-content/uploads/2022/01/new-world.png" alt="" class="mr-2" width="100" height="100"> -->
-                                <span><img src="./images/<?= $data['parentcategory']; ?>" alt="<?= $data['alttext'] ?>" alt="" class="img bl-3 text-primary" width="50" height="50"></span>
+                                <span><img src="./images/<?= $data['category']; ?>" alt="<?= $data['alttext'] ?>" alt="" class="img bl-3 text-primary" width="50" height="50"></span>
+                                <!-- <span><img src="./images/<?= $data['parentcategory']; ?>" alt="<?= $data['alttext'] ?>" alt="" class="img bl-3 text-primary" width="50" height="50"></span> -->
                               </div>    
                               <div class="position-relative">
-                                <span class="item_genre small fw-600"><?= $data["category"]; ?></span>
+                                <!-- <span class="item_genre small fw-600"><?= $data["category"]; ?></span> -->
                               </div>  
                             </div>  
                             <div class="item_discount d-none d-sm-block"> 
